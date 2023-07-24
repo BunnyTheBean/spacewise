@@ -24,9 +24,9 @@ export class RegisterComponent {
       password: this.password.value!
     }
 
-    this.userService.registerUser(user).subscribe(user => {
-      console.log("TEST REGISTER");
-      console.log(user);
+    this.userService.registerUser(user).subscribe(_ => {
+      this.username.setValue('');
+      this.password.setValue('');
     });
   }
 }
