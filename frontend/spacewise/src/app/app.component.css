@@ -1,0 +1,15 @@
+header {
+    background-color: #000;
+}
+
+header * {
+    color: #fff;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+h1 {
+    margin-block: 0;
+    margin: auto;
+    text-align: center;
+}

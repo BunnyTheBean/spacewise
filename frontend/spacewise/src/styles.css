@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: #000;
+    cursor: default;
+    text-decoration: none;
+    display: block;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.flex-container-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-container-vertical {
+    display: flex;
+    flex-direction: column;
+}
