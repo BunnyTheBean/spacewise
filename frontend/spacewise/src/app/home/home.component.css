@@ -1,5 +1,5 @@
-nav {
-    width: 150px;
+nav, aside {
+    width: 170px;
 }
 
 main {
@@ -7,10 +7,6 @@ main {
     background-color: #efefef;
     min-height: calc(85vh);
     height: 100%;
-}
-
-aside {
-    width: 150px;
 }
 
 h2 {
