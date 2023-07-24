@@ -1,3 +1,6 @@
+## TODOS
+- handle http errors for user service
+
 ## What does the initial homepage need?
 - login button
 - register button

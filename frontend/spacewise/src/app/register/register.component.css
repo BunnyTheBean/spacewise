@@ -1,0 +1,22 @@
+.flex-container-vertical {
+    width: 100%;
+    align-items: center;
+}
+
+.flex-container-vertical * {
+    line-height: 1.5;
+}
+
+.form-input {
+    width: 200px;
+}
+
+input {
+    width: 100%;
+}
+
+button {
+    margin-top: 0.5em;
+    font-size: 1em;
+    font-weight: bold;
+}

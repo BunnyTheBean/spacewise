@@ -81,10 +81,16 @@ namespace SpaceWise.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
-          if (_context.Users == null)
-          {
-              return Problem("Entity set 'SpaceWiseDbContext.Users'  is null.");
-          }
+            if (_context.Users == null)
+            {
+                return Problem("Entity set 'SpaceWiseDbContext.Users'  is null.");
+            }
+
+            if (UsernameTaken(user.Username!))
+            {
+                return Conflict("Username already exists.");
+            }
+
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
@@ -114,6 +120,12 @@ namespace SpaceWise.Controllers
         private bool UserExists(int id)
         {
             return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        private bool UsernameTaken(string username)
+        {
+            bool usernameExists = _context.Users.Any(x => x.Username == username);
+            return usernameExists;
         }
     }
 }
