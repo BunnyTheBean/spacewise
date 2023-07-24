@@ -1,5 +1,6 @@
 ## TODOS
 - handle http errors for user service
+- 404 page
 
 ## What does the initial homepage need?
 - login button
