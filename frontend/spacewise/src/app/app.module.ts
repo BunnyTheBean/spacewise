@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
+import { RegisterAndLoginComponent } from './register-and-login/register-and-login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 
@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http'
   declarations: [
     AppComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterAndLoginComponent
   ],
   imports: [
     BrowserModule,

@@ -20,10 +20,10 @@ namespace SpaceWise.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-          if (_context.Users == null)
-          {
-              return NotFound();
-          }
+            if (_context.Users == null)
+            {
+                return NotFound();
+            }
             return await _context.Users.ToListAsync();
         }
 
@@ -95,6 +95,31 @@ namespace SpaceWise.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetUser", new { id = user.Id }, user);
+        }
+
+        // POST: api/Users/login
+        [HttpPost]
+        [Route("login")]
+        public async Task<ActionResult<User>> Login(User user)
+        {
+            if (_context.Users == null)
+            {
+                return Problem("Entity set 'SpaceWiseDbContext.Users'  is null.");
+            }
+
+            var allUsers = await _context.Users.ToListAsync();
+            var matchingUser = allUsers
+                .Where(x => user.Username == x.Username)
+                .Where(x => user.Password == x.Password)
+                .FirstOrDefault();
+            
+            if (matchingUser == null) 
+            {
+                return Unauthorized();
+            }
+
+            matchingUser.Password = "";
+            return matchingUser;
         }
 
         // DELETE: api/Users/5
