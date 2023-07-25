@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SpaceWise.Database;
 
@@ -10,9 +11,11 @@ using SpaceWise.Database;
 namespace SpaceWise.Migrations
 {
     [DbContext(typeof(SpaceWiseDbContext))]
-    partial class SpaceWiseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230725114735_AddBlogpost")]
+    partial class AddBlogpost
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.9");
@@ -58,7 +61,7 @@ namespace SpaceWise.Migrations
 
                     b.HasIndex("BlogpostId");
 
-                    b.ToTable("BlogpostSections");
+                    b.ToTable("BlogpostSection");
                 });
 
             modelBuilder.Entity("SpaceWise.Models.User", b =>
@@ -82,8 +85,7 @@ namespace SpaceWise.Migrations
                 {
                     b.HasOne("SpaceWise.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });
@@ -92,8 +94,7 @@ namespace SpaceWise.Migrations
                 {
                     b.HasOne("SpaceWise.Models.Blogpost", null)
                         .WithMany("Sections")
-                        .HasForeignKey("BlogpostId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("BlogpostId");
                 });
 
             modelBuilder.Entity("SpaceWise.Models.Blogpost", b =>

@@ -11,8 +11,8 @@ using SpaceWise.Database;
 namespace SpaceWise.Migrations
 {
     [DbContext(typeof(SpaceWiseDbContext))]
-    [Migration("20230725111959_AddBlogpost")]
-    partial class AddBlogpost
+    [Migration("20230725115936_CascadeDeletes")]
+    partial class CascadeDeletes
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,14 +26,13 @@ namespace SpaceWise.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Category")
+                    b.Property<int?>("Category")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -53,18 +52,16 @@ namespace SpaceWise.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Content")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BlogpostId");
 
-                    b.ToTable("BlogpostSection");
+                    b.ToTable("BlogpostSections");
                 });
 
             modelBuilder.Entity("SpaceWise.Models.User", b =>
@@ -74,11 +71,9 @@ namespace SpaceWise.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -89,10 +84,9 @@ namespace SpaceWise.Migrations
             modelBuilder.Entity("SpaceWise.Models.Blogpost", b =>
                 {
                     b.HasOne("SpaceWise.Models.User", "User")
-                        .WithMany("Blogposts")
+                        .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("User");
                 });
@@ -101,17 +95,13 @@ namespace SpaceWise.Migrations
                 {
                     b.HasOne("SpaceWise.Models.Blogpost", null)
                         .WithMany("Sections")
-                        .HasForeignKey("BlogpostId");
+                        .HasForeignKey("BlogpostId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("SpaceWise.Models.Blogpost", b =>
                 {
                     b.Navigation("Sections");
-                });
-
-            modelBuilder.Entity("SpaceWise.Models.User", b =>
-                {
-                    b.Navigation("Blogposts");
                 });
 #pragma warning restore 612, 618
         }

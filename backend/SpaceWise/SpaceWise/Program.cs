@@ -26,30 +26,30 @@ app.UseStaticFiles();
 app.UseAuthorization();
 app.MapControllers();
 
-//var post = new Blogpost
-//{
-//    Id = 123,
-//    Sections = new List<BlogpostSection> { 
-//        new BlogpostSection
-//        {
-//            Title = "Main Header",
-//            Content = "bla bla bla hello"
-//        },
-//        new BlogpostSection
-//        {
-//            Title = "Subheader",
-//            Content = "So much content, yay"
-//        }
-//    },
-//    Category = BlogpostCategory.Technology,
-//    Tags = new List<string> { "techno", "blargh" },
-//    Image = "test.jpg",
-//    User = new User
-//    {
-//        Id = 1,
-//        Username = "Bob",
-//        Password = "bobspw"
-//    }
-//};
+var post = new Blogpost
+{
+    Id = 123,
+    Sections = new List<BlogpostSection> { 
+        new BlogpostSection
+        {
+            Title = "Main Header",
+            Content = "bla bla bla hello"
+        },
+        new BlogpostSection
+        {
+            Title = "Subheader",
+            Content = "So much content, yay"
+        }
+    },
+    Category = BlogpostCategory.Technology,
+    Image = "test.jpg",
+    User = new User
+    {
+        Id = 1,
+        Username = "Bob",
+        Password = "bobspw"
+    }
+};
+Console.WriteLine(post.ToJson());
 
 app.Run();

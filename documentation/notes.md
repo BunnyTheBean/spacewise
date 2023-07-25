@@ -4,6 +4,7 @@
 - make submit buttons react to enter key
 - save settings like url strings in a separate config file
 - restrict file upload types
+- adjust other BlogpostsController methods
 
 ## What does the initial homepage need?
 - login button

@@ -10,35 +10,15 @@ namespace SpaceWise.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
-                name: "Username",
-                table: "Users",
-                type: "TEXT",
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Password",
-                table: "Users",
-                type: "TEXT",
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldNullable: true);
-
             migrationBuilder.CreateTable(
                 name: "Blogposts",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Category = table.Column<int>(type: "INTEGER", nullable: false),
-                    Image = table.Column<string>(type: "TEXT", nullable: false),
-                    UserId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Category = table.Column<int>(type: "INTEGER", nullable: true),
+                    Image = table.Column<string>(type: "TEXT", nullable: true),
+                    UserId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -47,8 +27,7 @@ namespace SpaceWise.Migrations
                         name: "FK_Blogposts_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -57,8 +36,8 @@ namespace SpaceWise.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<string>(type: "TEXT", nullable: false),
-                    Content = table.Column<string>(type: "TEXT", nullable: false),
+                    Title = table.Column<string>(type: "TEXT", nullable: true),
+                    Content = table.Column<string>(type: "TEXT", nullable: true),
                     BlogpostId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
@@ -90,22 +69,6 @@ namespace SpaceWise.Migrations
 
             migrationBuilder.DropTable(
                 name: "Blogposts");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Username",
-                table: "Users",
-                type: "TEXT",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "TEXT");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Password",
-                table: "Users",
-                type: "TEXT",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "TEXT");
         }
     }
 }
