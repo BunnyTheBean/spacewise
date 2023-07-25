@@ -5,6 +5,9 @@
 - save settings like url strings in a separate config file
 - restrict file upload types
 - adjust other BlogpostsController methods
+- allow UNDO for image upload and adding new text section
+- add labels to create page entries
+- create page: make the first input have bigger font size (2em)
 
 ## What does the initial homepage need?
 - login button

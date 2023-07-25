@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
 })
 export class BlogpostCreateComponent {
   basePath = 'http://localhost:5001';
-  imagePath: string = 'http://localhost:5001/images/x.jpg';  
+  imagePath: string = 'http://localhost:5001/images/x.jpg';
+  showUpload: boolean = true;
 
   constructor(private http: HttpClient) { }
 
@@ -23,6 +24,7 @@ export class BlogpostCreateComponent {
       
       this.http.post<string>("http://localhost:5001/api/images", formData).subscribe(fileName =>  {
         this.imagePath = `${this.basePath}/images/${fileName}`;
+        this.showUpload = false;
       });
     }
   }
