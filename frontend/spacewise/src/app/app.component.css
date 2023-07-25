@@ -13,4 +13,5 @@ h1 {
     margin-block: 0;
     margin: auto;
     text-align: center;
+    cursor: default;
 }
