@@ -8,5 +8,7 @@ namespace SpaceWise.Database
         public SpaceWiseDbContext(DbContextOptions<SpaceWiseDbContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Blogpost> Blogposts { get; set; } = null!;
+
     }
 }
