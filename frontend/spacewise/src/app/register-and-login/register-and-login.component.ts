@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,10 @@ export class RegisterAndLoginComponent {
   isLogin: boolean = false;
   buttonText: string = 'Registrieren';
 
-  constructor(private userService: UserService, private route: ActivatedRoute) {
+  constructor(private userService: UserService, 
+      private route: ActivatedRoute, 
+      private loginService: LoginService,
+      private router: Router) {
     const urlPath = route.snapshot.url[0].path.toLowerCase();
     if (urlPath == 'login') {
       this.isLogin = true;
@@ -38,8 +42,9 @@ export class RegisterAndLoginComponent {
 
     const user = this.getUserFromForm();
 
-    this.userService.login(user).subscribe(user => {
-      console.log(user);
+    this.loginService.login(user).subscribe(user => {
+      this.loginService.currentUser = user;
+      this.router.navigateByUrl('/home');
     });
   }
 
@@ -51,8 +56,7 @@ export class RegisterAndLoginComponent {
     const user = this.getUserFromForm();
 
     this.userService.registerUser(user).subscribe(_ => {
-      this.username.setValue('');
-      this.password.setValue('');
+      this.router.navigateByUrl('/home');
     });
   }
 

@@ -98,6 +98,7 @@ namespace SpaceWise.Controllers
         }
 
         // POST: api/Users/login
+        // No actual login or authorization functionality other than checking if the password matches.
         [HttpPost]
         [Route("login")]
         public async Task<ActionResult<User>> Login(User user)

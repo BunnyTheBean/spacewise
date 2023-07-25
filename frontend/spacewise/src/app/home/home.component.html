@@ -1,7 +1,8 @@
 <div class="flex-container-horizontal">
     <nav>
         <a routerLink="/register">Registrieren</a>
-        <a routerLink="/login">Login</a>
+        <a *ngIf="!loggedIn" routerLink="/login">Einloggen</a>
+        <a *ngIf="loggedIn" (click)="logout()">Ausloggen</a>
     </nav>
 
     <main>
@@ -14,6 +15,6 @@
     </main>
 
     <aside>
-        <a routerLink="/placeholder">Neuer Blogpost</a>
+        <a *ngIf="loggedIn" routerLink="/placeholder">Neuer Blogpost</a>
 </aside>
 </div>
