@@ -67,7 +67,6 @@ namespace SpaceWise.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBlogpost(int id, Blogpost blogpost)
         {
-            // TODO: make this work, it doesnt yet work
             if (id != blogpost.Id)
             {
                 return BadRequest();
@@ -79,7 +78,10 @@ namespace SpaceWise.Controllers
                 return BadRequest("Blogpost references non-existing user.");
             }
 
-            var matchingBlogpost = await _context.Blogposts.FindAsync(blogpost.Id);
+            var matchingBlogpost = await _context.Blogposts
+                .Include(x => x.Sections)
+                .Include(x => x.User)
+                .FirstOrDefaultAsync(x => x.Id == id);
             if (matchingBlogpost == null) 
             {
                 return NotFound();
@@ -90,9 +92,28 @@ namespace SpaceWise.Controllers
                 return BadRequest("Blogpost references wrong user.");
             }
 
-            blogpost.User = matchingUser;
+            // delete BlogpostSection records that are no longer needed!
+            foreach (var section in matchingBlogpost.Sections!)
+            {
+                if (!blogpost.Sections!.Select(x => x.Id).Contains(section.Id))
+                {
+                    _context.BlogpostSections.Remove(section);
+                }
+            }
 
-            _context.Entry(blogpost).State = EntityState.Modified;
+            // add new sections and preserve references to existing sections
+            foreach (var incomingSection in blogpost.Sections!)
+            {
+                if (!matchingBlogpost.Sections.Select(x => x.Id).Contains(incomingSection.Id) || incomingSection.Id == 0)
+                {
+                    matchingBlogpost.Sections.Add(incomingSection);
+                } else
+                {
+                    var matchingSection = matchingBlogpost.Sections.FirstOrDefault(x => x.Id == incomingSection.Id);
+                    matchingSection!.Title = incomingSection.Title;
+                    matchingSection!.Content = incomingSection.Content;
+                }
+            }
 
             try
             {
