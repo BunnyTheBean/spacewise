@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-blogpost-create',
@@ -8,10 +9,35 @@ import { Component } from '@angular/core';
 })
 export class BlogpostCreateComponent {
   basePath = 'http://localhost:5001';
-  imagePath: string = 'http://localhost:5001/images/x.jpg';
+  imagePath: string = 'http://localhost:5001/images/empty.jpg';
   showUpload: boolean = true;
+  blogpostForm: FormGroup;
+  categories: string[] = ['Himmelskörper', 'Physik', 'Technik', 'Anderes'];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private fb: FormBuilder) {
+    this.blogpostForm = fb.group({
+      category: [this.categories[0]],
+      sections: fb.array([ ])
+    });
+
+    this.addSection();
+    this.blogpostForm.get('category')?.setValue(0);
+  }
+
+  get sections(): FormArray {
+    return this.blogpostForm.get('sections') as FormArray;
+  }
+
+  addSection(): void {
+    this.sections.push(this.fb.group({
+      title: [''],
+      content: ['']
+    }));
+  }
+
+  onCreate(): void {
+    
+  }
 
   public onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
