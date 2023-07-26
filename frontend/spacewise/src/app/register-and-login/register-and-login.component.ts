@@ -28,6 +28,22 @@ export class RegisterAndLoginComponent {
   }
 
   public buttonClicked(): void {
+    if (this.loginService.remainingErrorsToThrow > 1) {
+      this.loginService.remainingErrorsToThrow -= 1;
+      alert("Fehler!");
+      this.clearForm();
+      return;
+    }
+
+    if (this.loginService.remainingErrorsToThrow == 1) {
+      this.loginService.remainingErrorsToThrow -= 1;
+      if (Math.random() > 0.5) {
+        alert("Fehler!");
+        this.clearForm();
+        return;
+      }
+    }
+    
     if (this.isLogin) {
       this.login();
     } else {
@@ -65,5 +81,10 @@ export class RegisterAndLoginComponent {
       username: this.username.value!,
       password: this.password.value!
     }
+  }
+
+  private clearForm(): void {
+    this.username.setValue('');
+    this.password.setValue('');
   }
 }

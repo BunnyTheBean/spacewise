@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
   currentUser: User | null = null;
+  remainingErrorsToThrow: number = 2;
   
   private loginUrl = 'http://localhost:5001/api/users/login';
   httpOptions = {
