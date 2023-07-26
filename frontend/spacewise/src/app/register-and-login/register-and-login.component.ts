@@ -92,5 +92,7 @@ export class RegisterAndLoginComponent {
     const button = document.getElementById('submit-button') as HTMLButtonElement;
     button.style.color = "darkgray";
     button.style.background = "lightgray"
+    button.style.borderColor = "darkgray";
+    button.style.borderStyle = "solid";
   }
 }

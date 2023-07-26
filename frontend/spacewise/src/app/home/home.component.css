@@ -2,6 +2,12 @@ nav, aside {
     width: 170px;
 }
 
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
 main {
     width: calc(100% - 300px);
     background-color: #efefef;
