@@ -1,6 +1,6 @@
 <div class="flex-container-horizontal">
-    <div id="text-container" [formGroup]="blogpostForm" (ngSubmit)="onCreate()">
-        <button id="create-button" type="submit">Anlegen</button><br>
+    <div id="text-container" [formGroup]="blogpostForm">
+        <button id="create-button" type="submit" (click)="onCreate()">Anlegen</button><br>
 
         <select formControlName="category">
             <option *ngFor="let c of categories; let i = index" [ngValue]="i">{{c}}</option>
