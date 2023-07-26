@@ -16,6 +16,28 @@
     font-size: 1.3em;
 }
 
+textarea {
+    min-width: 100%;
+    padding: 3px;
+    margin-top: 0.5em;
+    font-size: 1.1em;
+}
+
+.section-container {
+    margin-top: 1em;
+}
+
+.input-0 {
+    font-size: 2em !important;
+}
+
+#create-button {
+    margin-bottom: 0.5em;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/*
 .multiline-input {
     display: block;
     overflow: hidden;
@@ -27,7 +49,4 @@
     margin-top: 0.5em;
     font-size: 1.1em;
 }
-
-.section-container {
-    margin-top: 1em;
-}
+*/

@@ -1,12 +1,20 @@
 <div class="flex-container-horizontal">
-    <div id="text-container">
-        <div class="section-container">
-            <input type="text"><br>
-            <span class="multiline-input" contenteditable>asdsadsad</span>
-        </div>
-        <div class="section-container">
-            <input type="text"><br>
-            <span class="multiline-input" contenteditable>asdsadsad</span>
+    <div id="text-container" [formGroup]="blogpostForm" (ngSubmit)="onCreate()">
+        <button id="create-button" type="submit">Anlegen</button><br>
+
+        <select formControlName="category">
+            <option *ngFor="let c of categories; let i = index" [ngValue]="i">{{c}}</option>
+        </select>
+
+        <div formArrayName="sections">
+            <div *ngFor="let section of sections.controls; let i = index">
+                <div class="section-container" [formGroupName]="i">
+                    <input class="input-{{i}}" type="text" formControlName="title"><br>
+                    <textarea formControlName="content" rows="12"></textarea>
+                </div>
+            </div>
+
+            <button (click)="addSection()">+ weiterer Abschnitt</button>
         </div>
     </div>
     
@@ -15,4 +23,3 @@
         <img *ngIf="!showUpload" [src]="imagePath" alt="{{imagePath}}" width="300" height="300">
     </div>
 </div>
-
