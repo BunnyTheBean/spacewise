@@ -124,4 +124,9 @@ export class BlogpostCreateComponent {
     this.imagePath = `${this.basePath}/images/${fileName}`;
     this.showUpload = false;
   }
+
+  removeImage(): void {
+    this.setImage('empty.jpg');
+    this.showUpload = true;
+  }
 }
