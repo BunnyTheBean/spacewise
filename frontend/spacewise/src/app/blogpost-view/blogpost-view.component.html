@@ -4,6 +4,8 @@
             <h3 id="header-{{i}}">{{section.title}}</h3>
             <p>{{section.content}}</p>
         </section>
+
+        <button *ngIf="belongsToUser" (click)="onEditClicked()">Verändern</button>
     </div>
     
     <img [src]="imagePath" alt="{{imagePath}}" width="300" height="300">

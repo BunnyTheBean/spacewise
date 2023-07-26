@@ -4,7 +4,7 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Blogpost, BlogpostCategory, BlogpostSection } from '../models/blogpost';
 import { LoginService } from '../login.service';
 import { BlogpostService } from '../blogpost.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-blogpost-create',
@@ -18,12 +18,15 @@ export class BlogpostCreateComponent {
   showUpload: boolean = true;
   blogpostForm: FormGroup;
   categories: string[] = ['Himmelskörper', 'Physik', 'Technik', 'Anderes'];
+  isEditing: boolean;
+  existingPost: Blogpost | undefined;
 
   constructor(private http: HttpClient, 
       private fb: FormBuilder, 
       private loginService: LoginService,
       private blogpostService: BlogpostService,
-      private router: Router) {
+      private router: Router,
+      private route: ActivatedRoute) {
     this.blogpostForm = fb.group({
       category: [this.categories[0]],
       sections: fb.array([ ])
@@ -31,6 +34,36 @@ export class BlogpostCreateComponent {
 
     this.addSection();
     this.blogpostForm.get('category')?.setValue(0);
+
+    const url = this.router.url;
+    this.isEditing = /^\/blogpost\/edit\/.*/.test(url);
+    if (this.isEditing) {
+      this.fillWithExistingPost();
+    }
+  }
+
+  private fillWithExistingPost(): void {
+    const id = parseInt(this.route.snapshot.paramMap.get('id')!);
+    this.blogpostService.getBlogpost(id).subscribe(data => {
+      this.existingPost = data;
+
+      this.blogpostForm.get('category')?.setValue(this.existingPost.category);
+      
+      const sectionsArray = this.fb.array<FormGroup>([]);
+      for (let section of this.existingPost.sections!) {
+        sectionsArray.push(this.fb.group({
+          title: [section.title],
+          content: [section.content]
+        }));
+      }
+      this.blogpostForm.setControl('sections', sectionsArray);
+
+      this.setImage(this.existingPost.image!);
+    });
+  }
+
+  onUpdate(): void {
+
   }
 
   get sections(): FormArray {
@@ -62,7 +95,7 @@ export class BlogpostCreateComponent {
     })
   }
 
-  public onFileSelected(event: Event): void {
+  onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (!input.files) return;
     const file = input.files[0];
@@ -72,10 +105,14 @@ export class BlogpostCreateComponent {
       formData.append("formfile", file);
       
       this.http.post<string>("http://localhost:5001/api/images", formData).subscribe(fileName =>  {
-        this.imagePath = `${this.basePath}/images/${fileName}`;
-        this.imageFileName = fileName;
-        this.showUpload = false;
+        this.setImage(fileName);
       });
     }
+  }
+
+  private setImage(fileName: string) {
+    this.imageFileName = fileName;  
+    this.imagePath = `${this.basePath}/images/${fileName}`;
+    this.showUpload = false;
   }
 }
