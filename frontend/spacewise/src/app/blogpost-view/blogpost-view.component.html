@@ -1,0 +1,10 @@
+<div class="flex-container-horizontal">
+    <div id="text-container" *ngIf="blogpost">
+        <section *ngFor="let section of blogpost!.sections; let i = index">
+            <h3 id="header-{{i}}">{{section.title}}</h3>
+            <p>{{section.content}}</p>
+        </section>
+    </div>
+    
+    <img [src]="imagePath" alt="{{imagePath}}" width="300" height="300">
+</div>

@@ -8,14 +8,14 @@
     <main>
         <h2>Blogposts</h2>
         <ul>
-            <a>Die Ringe des Saturns</a>
-            <a>Warum die astronomische Einheit?</a>
-            <a>Geschichte des Spaceshuttles</a>
+            <a *ngFor="let blogpost of blogposts" routerLink="/blogpost/view/{{blogpost.id}}">
+                {{blogpost.sections![0].title}}
+            </a>
         </ul>
     </main>
 
     <aside>
         <a *ngIf="loggedIn" routerLink="/blogpost/create">Neuer Blogpost</a>
-        <a routerLink="/blogpost/create">TEST CREATE</a>
+        <!-- <a routerLink="/blogpost/create">TEST CREATE</a> -->
 </aside>
 </div>

@@ -14,6 +14,14 @@ export class BlogpostService {
 
   constructor(private http: HttpClient) { }
 
+  getAllBlogposts(): Observable<Blogpost[]> {
+    return this.http.get<Blogpost[]>(this.blogpostUrl);
+  }
+
+  getBlogpost(id: number): Observable<Blogpost> {
+    return this.http.get<Blogpost>(`${this.blogpostUrl}/${id}`);
+  }
+
   createBlogpost(blogpost: Blogpost): Observable<Blogpost> {
     return this.http.post<Blogpost>(this.blogpostUrl, blogpost, this.httpOptions);
   }

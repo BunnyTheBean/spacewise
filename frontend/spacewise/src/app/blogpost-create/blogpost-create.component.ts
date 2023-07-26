@@ -4,6 +4,7 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Blogpost, BlogpostCategory, BlogpostSection } from '../models/blogpost';
 import { LoginService } from '../login.service';
 import { BlogpostService } from '../blogpost.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blogpost-create',
@@ -21,7 +22,8 @@ export class BlogpostCreateComponent {
   constructor(private http: HttpClient, 
       private fb: FormBuilder, 
       private loginService: LoginService,
-      private blogpostService: BlogpostService) {
+      private blogpostService: BlogpostService,
+      private router: Router) {
     this.blogpostForm = fb.group({
       category: [this.categories[0]],
       sections: fb.array([ ])
@@ -54,8 +56,9 @@ export class BlogpostCreateComponent {
       user: this.loginService.currentUser!
     };
 
-    this.blogpostService.createBlogpost(blogpost).subscribe((x) => {
-      console.log(x);
+    this.blogpostService.createBlogpost(blogpost).subscribe((createdPost) => {
+      console.log(createdPost);
+      this.router.navigateByUrl('/home');
     })
   }
 
