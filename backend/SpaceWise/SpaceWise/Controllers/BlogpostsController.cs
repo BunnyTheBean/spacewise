@@ -67,7 +67,7 @@ namespace SpaceWise.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBlogpost(int id, Blogpost blogpost)
         {
-            if (id != blogpost.Id)
+            if (id != blogpost.Id || blogpost.User == null)
             {
                 return BadRequest();
             }
@@ -114,6 +114,8 @@ namespace SpaceWise.Controllers
                     matchingSection!.Content = incomingSection.Content;
                 }
             }
+            matchingBlogpost.Category = blogpost.Category;
+            matchingBlogpost.Image = blogpost.Image;
 
             await _context.SaveChangesAsync();
 

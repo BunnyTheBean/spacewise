@@ -25,4 +25,8 @@ export class BlogpostService {
   createBlogpost(blogpost: Blogpost): Observable<Blogpost> {
     return this.http.post<Blogpost>(this.blogpostUrl, blogpost, this.httpOptions);
   }
+
+  updateBlogpost(blogpost: Blogpost): Observable<any> {
+    return this.http.put(`${this.blogpostUrl}/${blogpost.id}`, blogpost, this.httpOptions);
+  }
 }

@@ -20,7 +20,6 @@ export class HomeComponent {
 
     this.blogpostService.getAllBlogposts().subscribe((data) => {
       this.blogposts = data;
-      console.log(data);
     });
   }
 

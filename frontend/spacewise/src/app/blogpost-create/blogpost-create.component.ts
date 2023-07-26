@@ -63,7 +63,12 @@ export class BlogpostCreateComponent {
   }
 
   onUpdate(): void {
+    const blogpost = this.getBlogpostFromForm();
+    blogpost.id = this.existingPost?.id;
 
+    this.blogpostService.updateBlogpost(blogpost).subscribe(() => {
+      this.router.navigateByUrl(`/blogpost/view/${blogpost.id}`);
+    });
   }
 
   get sections(): FormArray {
@@ -78,6 +83,14 @@ export class BlogpostCreateComponent {
   }
 
   onCreate(): void {
+    const blogpost = this.getBlogpostFromForm();
+
+    this.blogpostService.createBlogpost(blogpost).subscribe((newBlogpost) => {
+      this.router.navigateByUrl(`/blogpost/view/${newBlogpost.id}`);
+    })
+  }
+
+  private getBlogpostFromForm(): Blogpost {
     const formValue = this.blogpostForm.value;
     const sections = formValue.sections as BlogpostSection[];
     const category = formValue.category as BlogpostCategory;
@@ -88,11 +101,7 @@ export class BlogpostCreateComponent {
       image: this.imageFileName,
       user: this.loginService.currentUser!
     };
-
-    this.blogpostService.createBlogpost(blogpost).subscribe((createdPost) => {
-      console.log(createdPost);
-      this.router.navigateByUrl('/home');
-    })
+    return blogpost;
   }
 
   onFileSelected(event: Event): void {

@@ -1,7 +1,7 @@
 <div class="flex-container-horizontal">
     <div id="text-container" [formGroup]="blogpostForm">
-        <button *ngIf="!isEditing" id="create-button" type="submit" (click)="onCreate()">Kreieren</button>
-        <button *ngIf="isEditing" id="create-button" type="submit" (click)="onUpdate()">Verändern</button>
+        <button *ngIf="!isEditing" class="submit-button" type="submit" (click)="onCreate()">Kreieren</button>
+        <button *ngIf="isEditing" class="submit-button" type="submit" (click)="onUpdate()">Verändern</button>
         <br>
 
         <select formControlName="category">
