@@ -30,6 +30,16 @@ export class BlogpostViewComponent {
   }
 
   onEditClicked(): void {
-    this.router.navigateByUrl(`blogpost/edit/${this.blogpost?.id}`);
+    //this.router.navigateByUrl(`blogpost/edit/${this.blogpost?.id}`);
+    this.slowNavigate(`blogpost/edit/${this.blogpost?.id}`);
+  }
+
+  slowNavigate(route: string): void {
+    const delay = 500 + Math.floor(Math.random()*3000);
+    console.log(delay);
+    console.log(route);
+    setTimeout(() => {
+      this.router.navigateByUrl(route);
+    }, delay);
   }
 }

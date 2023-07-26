@@ -8,6 +8,7 @@
 - allow UNDO for image upload and adding new text section
 - add labels to create page entries
 - create page: make the first input have bigger font size (2em)
+- undo slowdown navigation via function, user routerLink again
 
 ## What does the initial homepage need?
 - login button

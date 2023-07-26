@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LoginService } from '../login.service';
 import { BlogpostService } from '../blogpost.service';
 import { Blogpost } from '../models/blogpost';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ export class HomeComponent {
   blogposts: Blogpost[] = [];
   
   constructor(private loginService: LoginService,
-              private blogpostService: BlogpostService) {
+              private blogpostService: BlogpostService,
+              private router: Router) {
     if (loginService.currentUser) {
       this.loggedIn = true;
     }
@@ -23,8 +25,17 @@ export class HomeComponent {
     });
   }
 
-  public logout(): void {
+  logout(): void {
     this.loginService.currentUser = null;
     this.loggedIn = false;
+  }
+
+  slowNavigate(route: string): void {
+    const delay = 500 + Math.floor(Math.random()*3000);
+    console.log(delay);
+    console.log(route);
+    setTimeout(() => {
+      this.router.navigateByUrl(route);
+    }, delay);
   }
 }
