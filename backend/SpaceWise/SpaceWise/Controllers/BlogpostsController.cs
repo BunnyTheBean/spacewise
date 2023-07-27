@@ -39,6 +39,26 @@ namespace SpaceWise.Controllers
             return Ok(blogposts);
         }
 
+        // GET: api/Blogposts/user/5
+        [Route("user/{userId}")]
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Blogpost>>> GetBlogpostsForUser(int userId)
+        {
+            var blogposts = await _context.Blogposts.Include(x => x.Sections).Include(x => x.User).Where(x => x.User!.Id == userId).ToListAsync();
+            blogposts.ForEach(x => x.User!.Password = string.Empty);
+            return Ok(blogposts);
+        }
+
+        // GET: api/Blogposts/category/3
+        [Route("category/{categoryValue}")]
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Blogpost>>> GetBlogpostsForCategory(int categoryValue)
+        {
+            var blogposts = await _context.Blogposts.Include(x => x.Sections).Include(x => x.User).Where(x => (int)x.Category! == categoryValue).ToListAsync();
+            blogposts.ForEach(x => x.User!.Password = string.Empty);
+            return Ok(blogposts);
+        }
+
         // GET: api/Blogposts/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Blogpost>> GetBlogpost(int id)
