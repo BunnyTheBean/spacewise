@@ -9,7 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogpostCreateComponent } from './blogpost-create/blogpost-create.component';
 import { BlogpostViewComponent } from './blogpost-view/blogpost-view.component';
-import { SearchBarComponent } from './search-bar/search-bar.component'
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { BlogpostCardComponent } from './blogpost-card/blogpost-card.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SearchBarComponent } from './search-bar/search-bar.component'
     RegisterAndLoginComponent,
     BlogpostCreateComponent,
     BlogpostViewComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    BlogpostCardComponent
   ],
   imports: [
     BrowserModule,

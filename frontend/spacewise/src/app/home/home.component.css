@@ -1,0 +1,14 @@
+h2 {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: 0 2em;
+    justify-items: center;
+    row-gap: 1em;
+    column-gap: 1em;
+}

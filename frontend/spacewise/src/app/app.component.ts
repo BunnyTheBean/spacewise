@@ -9,7 +9,7 @@ import { LoginService } from './login.service';
 })
 export class AppComponent {
   title = 'SpaceWise';
-  loggedIn: boolean = true;
+  loggedIn: boolean = false;
 
   constructor(private loginService: LoginService) {
     this.loginService.loginEvent.subscribe(loggedInStatus => {
