@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Blogpost } from '../models/blogpost';
+import { Blogpost, BlogpostCategory } from '../models/blogpost';
 import { BlogpostService } from '../blogpost.service';
 
 @Component({
@@ -22,6 +22,21 @@ export class BlogpostListComponent {
       case '/blogpost/list/myposts':
         this.initializeMyPosts();
         break;
+      case '/blogpost/list/allposts':
+        this.initializeAllPosts();
+        break;
+      case '/blogpost/list/celestialbodies':
+        this.initializeCelestialBodies();
+        break;
+      case '/blogpost/list/physics':
+        this.initializePhysics();
+        break;
+      case '/blogpost/list/technology':
+        this.initializeTechnology();
+        break;
+      case '/blogpost/list/other':
+        this.initializeOther();
+        break;
       default:
         this.initializeDefault();
     }
@@ -30,6 +45,39 @@ export class BlogpostListComponent {
   private initializeMyPosts(): void {
     this.title = "Meine Blogposts";
     this.blogpostService.getAllBlogpostsForCurrentUser().subscribe(posts => {
+      this.blogposts = posts;
+    });
+  }
+
+  private initializeAllPosts(): void {
+    this.title = "Alle Blogposts";
+    this.blogpostService.getAllBlogposts().subscribe(posts => {
+      this.blogposts = posts;
+    });
+  }
+
+  private initializeCelestialBodies(): void {
+    this.title = "Blogposts über Himmelskörper";
+    this.fillBlogpostsForCategory(BlogpostCategory.CelestialBodies);
+  }
+
+  private initializePhysics(): void {
+    this.title = "Blogposts über Physik";
+    this.fillBlogpostsForCategory(BlogpostCategory.Physics);
+  }
+
+  private initializeTechnology(): void {
+    this.title = "Blogposts über Technik";
+    this.fillBlogpostsForCategory(BlogpostCategory.Technology);
+  }
+
+  private initializeOther(): void {
+    this.title = "Blogposts über Andere Themen";
+    this.fillBlogpostsForCategory(BlogpostCategory.Other);
+  }
+
+  private fillBlogpostsForCategory(category: number): void {
+    this.blogpostService.getAllBlogpostsForCategory(category).subscribe(posts => {
       this.blogposts = posts;
     });
   }

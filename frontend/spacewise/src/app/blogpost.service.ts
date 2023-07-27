@@ -28,6 +28,10 @@ export class BlogpostService {
     return this.http.get<Blogpost[]>(`${this.blogpostUrl}/user/${this.loginService.currentUser.id}`)
   }
 
+  getAllBlogpostsForCategory(categoryValue: number): Observable<Blogpost[]> {
+    return this.http.get<Blogpost[]>(`${this.blogpostUrl}/category/${categoryValue}`)
+  }
+
   getBlogpost(id: number): Observable<Blogpost> {
     return this.http.get<Blogpost>(`${this.blogpostUrl}/${id}`);
   }

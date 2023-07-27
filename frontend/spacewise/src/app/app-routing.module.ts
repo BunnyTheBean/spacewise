@@ -14,6 +14,11 @@ const routes: Routes = [
   { path: 'blogpost/edit/:id', component: BlogpostCreateComponent  },
   { path: 'blogpost/view/:id', component: BlogpostViewComponent  },
   { path: 'blogpost/list/myPosts', component: BlogpostListComponent },
+  { path: 'blogpost/list/allPosts', component: BlogpostListComponent },
+  { path: 'blogpost/list/celestialBodies', component: BlogpostListComponent },
+  { path: 'blogpost/list/physics', component: BlogpostListComponent },
+  { path: 'blogpost/list/technology', component: BlogpostListComponent },
+  { path: 'blogpost/list/other', component: BlogpostListComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
