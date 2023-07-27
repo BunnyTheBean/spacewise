@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -80,6 +81,25 @@ namespace SpaceWise.Controllers
 
             blogpost.User!.Password = string.Empty;
             return blogpost;
+        }
+
+        // GET: api/Blogposts/search?searchString=word1%20word2
+        [Route("search")]
+        [HttpGet]
+        public ActionResult<IEnumerable<int>> GetOrderedIdsForSearchString(string searchString)
+        {
+            var keywords = searchString.Split(" ").Select(x => x.ToLower()).ToArray();
+            var blogposts = _context.Blogposts.Include(x => x.Sections).ToList();
+            var scores = new List<BlogpostScore>();
+            
+            foreach (var blogpost in blogposts)
+            {
+                scores.Add(getSearchScore(keywords, blogpost));
+            }
+
+            var orderedIds = scores.OrderByDescending(x => x.Score).Select(x => x.BlogpostId).ToList();
+
+            return orderedIds;
         }
 
         // PUT: api/Blogposts/5
@@ -190,9 +210,50 @@ namespace SpaceWise.Controllers
             return NoContent();
         }
 
+        // HELPER METHODS
         private bool BlogpostExists(int id)
         {
             return (_context.Blogposts?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        private BlogpostScore getSearchScore(string[] keywords, Blogpost blogpost)
+        {
+            /*
+             *  Scoring system:
+             *  100     keyword exists in title
+             *  10      keyword exists in subheading
+             *  1       keyword exists in content
+             */
+
+            var sections = blogpost.Sections!.ToList();
+            var score = 0;
+            foreach (var keyword in keywords)
+            {
+                var titleMatches = 0;
+                var subheadingMatches = 0;
+                var contentMatches = 0;
+
+                for (int i = 0; i < sections.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        titleMatches += Regex.Matches(sections[i].Title!.ToLower(), keyword).Count;
+                    } else
+                    {
+                        subheadingMatches += Regex.Matches(sections[i].Title!.ToLower(), keyword).Count;
+                    }
+
+                    contentMatches += Regex.Matches(sections[i].Content!.ToLower(), keyword).Count;
+                }
+
+                score += titleMatches * 100 + subheadingMatches * 10 + contentMatches;
+            }
+
+            return new BlogpostScore()
+            {
+                BlogpostId = blogpost.Id,
+                Score = score
+            };
         }
     }
 }
