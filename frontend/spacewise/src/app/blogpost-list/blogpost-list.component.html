@@ -1,0 +1,4 @@
+<h2>{{ title }}</h2>
+<div *ngFor="let blogpost of blogposts" routerLink="/blogpost/view/{{blogpost.id}}">
+    {{blogpost.sections![0].title}}
+</div>

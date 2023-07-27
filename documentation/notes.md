@@ -10,6 +10,7 @@
 - create page: make the first input have bigger font size (2em)
 - undo slowdown navigation via function, user routerLink again
 - take paths form a config file dynamically
+- make a header component
 
 ## What does the initial homepage need?
 - login button

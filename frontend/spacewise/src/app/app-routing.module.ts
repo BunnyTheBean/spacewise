@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterAndLoginComponent } from './register-and-login/register-and-login.component';
 import { BlogpostCreateComponent } from './blogpost-create/blogpost-create.component';
 import { BlogpostViewComponent } from './blogpost-view/blogpost-view.component';
+import { BlogpostListComponent } from './blogpost-list/blogpost-list.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'blogpost/create', component: BlogpostCreateComponent  },
   { path: 'blogpost/edit/:id', component: BlogpostCreateComponent  },
   { path: 'blogpost/view/:id', component: BlogpostViewComponent  },
+  { path: 'blogpost/list/myPosts', component: BlogpostListComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

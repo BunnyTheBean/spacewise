@@ -10,7 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BlogpostCreateComponent } from './blogpost-create/blogpost-create.component';
 import { BlogpostViewComponent } from './blogpost-view/blogpost-view.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { BlogpostCardComponent } from './blogpost-card/blogpost-card.component'
+import { BlogpostCardComponent } from './blogpost-card/blogpost-card.component';
+import { BlogpostListComponent } from './blogpost-list/blogpost-list.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BlogpostCardComponent } from './blogpost-card/blogpost-card.component'
     BlogpostCreateComponent,
     BlogpostViewComponent,
     SearchBarComponent,
-    BlogpostCardComponent
+    BlogpostCardComponent,
+    BlogpostListComponent
   ],
   imports: [
     BrowserModule,
