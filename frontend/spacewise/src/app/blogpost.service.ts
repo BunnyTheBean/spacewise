@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Blogpost } from './models/blogpost';
 import { Observable, of } from 'rxjs';
@@ -42,5 +42,19 @@ export class BlogpostService {
 
   updateBlogpost(blogpost: Blogpost): Observable<any> {
     return this.http.put(`${this.blogpostUrl}/${blogpost.id}`, blogpost, this.httpOptions);
+  }
+
+  getOrderedIds(keywords: string[]): Observable<number[]> {
+    let searchString = "";
+    for (let keyword of keywords) {
+      searchString += keyword + " ";
+    }
+    searchString = searchString.trim();
+
+    const options = searchString ? {
+      params: new HttpParams().set('searchString', searchString)
+    } : {};
+
+    return this.http.get<number[]>(`${this.blogpostUrl}/search`, options);
   }
 }

@@ -11,10 +11,13 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   blogposts: Blogpost[] = [];
   
-  constructor(private blogpostService: BlogpostService,
-              private router: Router) {
+  constructor(private blogpostService: BlogpostService) {
     this.blogpostService.getAllBlogposts().subscribe((data) => {
       this.blogposts = data.length >= 6 ? data.slice(-6) : data;
+    });
+
+    this.blogpostService.getOrderedIds(["shut", "rot", "satu"]).subscribe(data => {
+      console.log(data);
     });
   }
 }

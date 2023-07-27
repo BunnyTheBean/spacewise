@@ -97,7 +97,10 @@ namespace SpaceWise.Controllers
                 scores.Add(getSearchScore(keywords, blogpost));
             }
 
-            var orderedIds = scores.OrderByDescending(x => x.Score).Select(x => x.BlogpostId).ToList();
+            var orderedIds = scores.Where(x => x.Score > 0)
+                                    .OrderByDescending(x => x.Score)
+                                    .Select(x => x.BlogpostId)
+                                    .ToList();
 
             return orderedIds;
         }
