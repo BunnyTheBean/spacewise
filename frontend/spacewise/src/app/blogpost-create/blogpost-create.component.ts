@@ -67,8 +67,7 @@ export class BlogpostCreateComponent {
     blogpost.id = this.existingPost?.id;
 
     this.blogpostService.updateBlogpost(blogpost).subscribe(() => {
-      //this.router.navigateByUrl(`/blogpost/view/${blogpost.id}`);
-      this.slowNavigate(`/blogpost/view/${blogpost.id}`);
+      this.router.navigateByUrl(`/blogpost/view/${blogpost.id}`);
     });
   }
 
@@ -87,8 +86,7 @@ export class BlogpostCreateComponent {
     const blogpost = this.getBlogpostFromForm();
 
     this.blogpostService.createBlogpost(blogpost).subscribe((newBlogpost) => {
-      //this.router.navigateByUrl(`/blogpost/view/${newBlogpost.id}`);
-      this.slowNavigate(`/blogpost/view/${newBlogpost.id}`);
+      this.router.navigateByUrl(`/blogpost/view/${newBlogpost.id}`);
     })
   }
 
@@ -130,14 +128,5 @@ export class BlogpostCreateComponent {
   removeImage(): void {
     this.setImage('empty.jpg');
     this.showUpload = true;
-  }
-
-  slowNavigate(route: string): void {
-    const delay = 5000 + Math.floor(Math.random()*5000);
-    console.log(delay);
-    console.log(route);
-    setTimeout(() => {
-      this.router.navigateByUrl(route);
-    }, delay);
   }
 }

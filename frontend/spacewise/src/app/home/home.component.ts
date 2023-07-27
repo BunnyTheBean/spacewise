@@ -29,13 +29,4 @@ export class HomeComponent {
     this.loginService.currentUser = null;
     this.loggedIn = false;
   }
-
-  slowNavigate(route: string): void {
-    const delay = 500 + Math.floor(Math.random()*3000);
-    console.log(delay);
-    console.log(route);
-    setTimeout(() => {
-      this.router.navigateByUrl(route);
-    }, delay);
-  }
 }

@@ -28,20 +28,11 @@ export class RegisterAndLoginComponent {
   }
 
   public buttonClicked(): void {
-    if (this.loginService.remainingErrorsToThrow > 1) {
-      this.loginService.remainingErrorsToThrow -= 1;
+    if (this.loginService.remainingErrorsToThrow > 0) {
+      this.loginService.remainingErrorsToThrow = 0;
       alert("Fehler!");
       this.clearForm();
       return;
-    }
-
-    if (this.loginService.remainingErrorsToThrow == 1) {
-      this.loginService.remainingErrorsToThrow -= 1;
-      if (Math.random() > 0.5) {
-        alert("Fehler!");
-        this.clearForm();
-        return;
-      }
     }
     
     if (this.isLogin) {
