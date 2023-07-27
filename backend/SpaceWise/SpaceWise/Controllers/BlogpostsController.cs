@@ -83,10 +83,11 @@ namespace SpaceWise.Controllers
             return blogpost;
         }
 
+        // TODO: change this to return blogposts
         // GET: api/Blogposts/search?searchString=word1%20word2
         [Route("search")]
         [HttpGet]
-        public ActionResult<IEnumerable<int>> GetOrderedIdsForSearchString(string searchString)
+        public ActionResult<IEnumerable<int>> GetOrderedBlogpostsForSearchString(string searchString)
         {
             var keywords = searchString.Split(" ").Select(x => x.ToLower()).ToArray();
             var blogposts = _context.Blogposts.Include(x => x.Sections).ToList();

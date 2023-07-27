@@ -1,4 +1,4 @@
 <div class="flex-container-horizontal">
-    <input>
-    <span>Suchen</span>
+    <input [formControl]="searchBarControl">
+    <span (click)="onSearch()">Suchen</span>
 </div>

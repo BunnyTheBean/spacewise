@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'blogpost/list/physics', component: BlogpostListComponent },
   { path: 'blogpost/list/technology', component: BlogpostListComponent },
   { path: 'blogpost/list/other', component: BlogpostListComponent },
+  { path: 'blogpost/list/search', component: BlogpostListComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

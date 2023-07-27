@@ -37,6 +37,9 @@ export class BlogpostListComponent {
       case '/blogpost/list/other':
         this.initializeOther();
         break;
+      case '/blogpost/list/search':
+        this.initializeSearch();
+        break;
       default:
         this.initializeDefault();
     }
@@ -74,6 +77,10 @@ export class BlogpostListComponent {
   private initializeOther(): void {
     this.title = "Blogposts über Andere Themen";
     this.fillBlogpostsForCategory(BlogpostCategory.Other);
+  }
+
+  private initializeSearch(): void {
+    
   }
 
   private fillBlogpostsForCategory(category: number): void {

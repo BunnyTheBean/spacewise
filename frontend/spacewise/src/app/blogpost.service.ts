@@ -13,6 +13,8 @@ export class BlogpostService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   };
 
+  searchBarBuffer = '';
+
   constructor(private http: HttpClient, private loginService: LoginService) { }
 
   getAllBlogposts(): Observable<Blogpost[]> {
@@ -44,7 +46,11 @@ export class BlogpostService {
     return this.http.put(`${this.blogpostUrl}/${blogpost.id}`, blogpost, this.httpOptions);
   }
 
-  getOrderedIds(keywords: string[]): Observable<number[]> {
+  // TODO: update this to return blogposts
+  getOrderedBlogpostsForSearch(keywords: string[]): Observable<number[]> {
+    if (!this.searchBarBuffer)
+      return of<number[]>([]);
+    
     let searchString = "";
     for (let keyword of keywords) {
       searchString += keyword + " ";
