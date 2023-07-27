@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { User } from './models/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class LoginService {
   currentUser: User | null = null;
   remainingErrorsToThrow: number = 2;
+  loginEvent = new EventEmitter<boolean>();
   
   private loginUrl = 'http://localhost:5001/api/users/login';
   httpOptions = {

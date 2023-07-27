@@ -51,6 +51,7 @@ export class RegisterAndLoginComponent {
 
     this.loginService.login(user).subscribe(user => {
       this.loginService.currentUser = user;
+      this.loginService.loginEvent.emit(true);
       this.router.navigateByUrl('/home');
     });
   }

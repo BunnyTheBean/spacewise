@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,16 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'SpaceWise';
+  loggedIn: boolean = true;
+
+  constructor(private loginService: LoginService) {
+    this.loginService.loginEvent.subscribe(loggedInStatus => {
+      this.loggedIn = loggedInStatus;
+    });
+  }
+
+  logout(): void {
+    this.loginService.currentUser = null;
+    this.loginService.loginEvent.emit(false);
+  }
 }

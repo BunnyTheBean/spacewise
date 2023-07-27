@@ -8,7 +8,8 @@ import { RegisterAndLoginComponent } from './register-and-login/register-and-log
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogpostCreateComponent } from './blogpost-create/blogpost-create.component';
-import { BlogpostViewComponent } from './blogpost-view/blogpost-view.component'
+import { BlogpostViewComponent } from './blogpost-view/blogpost-view.component';
+import { SearchBarComponent } from './search-bar/search-bar.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BlogpostViewComponent } from './blogpost-view/blogpost-view.component'
     HomeComponent,
     RegisterAndLoginComponent,
     BlogpostCreateComponent,
-    BlogpostViewComponent
+    BlogpostViewComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

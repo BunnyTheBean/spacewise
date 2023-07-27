@@ -1,5 +1,21 @@
 <header>
-  <h1 routerLink="/home">SpaceWise</h1>
+  <nav class="flex-container-horizontal" id="meta-navigation">
+    <h1 routerLink="/home">SpaceWise</h1>
+    <app-search-bar></app-search-bar>
+    <a *ngIf="!loggedIn" routerLink="/register">Registrieren</a>
+    <a *ngIf="!loggedIn" routerLink="/login">Einloggen</a>
+    <a *ngIf="loggedIn" (click)="logout()">Ausloggen</a>
+    <a *ngIf="loggedIn">Meine Posts</a>
+    <a *ngIf="loggedIn">Neuer Post</a>
+  </nav>
+
+  <nav class="flex-container-horizontal" id="main-navigation">
+    <a>Alle Posts</a>
+    <a>Himmelskörper</a>
+    <a>Physik</a>
+    <a>Technik</a>
+    <a>Anderes</a>
+  </nav>
 </header>
 
 <router-outlet></router-outlet>
