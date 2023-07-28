@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'SpaceWise';
   loggedIn: boolean = false;
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private router: Router) {
     this.loginService.loginEvent.subscribe(loggedInStatus => {
       this.loggedIn = loggedInStatus;
     });
@@ -20,5 +20,10 @@ export class AppComponent {
   logout(): void {
     this.loginService.currentUser = null;
     this.loginService.loginEvent.emit(false);
+
+    const url = this.router.url.toLowerCase()
+    if (url.includes('edit') || url.includes('create')) {
+      this.router.navigateByUrl('/home')
+    }
   }
 }
