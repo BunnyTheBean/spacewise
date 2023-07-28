@@ -37,14 +37,6 @@ body {
     margin: 0;
 }
 
-a {
-    color: #000;
-    cursor: default;
-    text-decoration: none;
-    display: block;
-    
-}
-
 .flex-container-horizontal {
     display: flex;
     flex-direction: row;

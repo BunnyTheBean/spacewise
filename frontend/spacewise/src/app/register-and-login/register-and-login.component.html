@@ -1,12 +1,12 @@
 <div class="flex-container-vertical">
     <div class="form-input">
         <label for="username">Name: </label><br>
-        <input id="username" type="text" [formControl]="username" (change)="greyOutTheButton()">
+        <input id="username" type="text" [formControl]="username">
     </div>
 
     <div class="form-input">
         <label for="password">Passwort: </label><br>
-        <input id="password" type="password" [formControl]="password" (change)="greyOutTheButton()">
+        <input id="password" type="password" [formControl]="password">
     </div>
 
     <button id="submit-button" type="button" (click)="buttonClicked()">{{ buttonText }}</button>

@@ -72,12 +72,4 @@ export class RegisterAndLoginComponent {
     this.username.setValue('');
     this.password.setValue('');
   }
-
-  greyOutTheButton(): void {
-    const button = document.getElementById('submit-button') as HTMLButtonElement;
-    button.style.color = "darkgray";
-    button.style.background = "lightgray"
-    button.style.borderColor = "darkgray";
-    button.style.borderStyle = "solid";
-  }
 }

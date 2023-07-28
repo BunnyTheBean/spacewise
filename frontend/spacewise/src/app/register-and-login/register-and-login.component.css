@@ -19,9 +19,11 @@ button {
     margin-top: 0.5em;
     font-size: 1em;
     font-weight: bold;
+    background-color: var(--primary-tint);
+    cursor: pointer;
+    padding: 0.1em 1em;
 }
 
-
-input {
-    color: red;
+label {
+    font-weight: bold;
 }

@@ -4,6 +4,8 @@
 - article preview with image and content
 - search bar preview with title and content
 
+## error handling
+- grey out login/register button on invalid form (also validate the form)
 
 ## Conventions to un-break
 - buttons pop out

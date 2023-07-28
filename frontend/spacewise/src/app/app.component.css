@@ -8,6 +8,10 @@ header * {
     color: #fff;
 }
 
+a {
+    text-decoration: none;
+}
+
 h1 {
     margin-block: 0;
     text-align: center;
