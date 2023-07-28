@@ -28,7 +28,8 @@
     </div>
     
     <div id="image-container">
-        <input *ngIf="showUpload" type="file" (change)="onFileSelected($event)">
+        <div id="choose-image-label" *ngIf="showUpload">Bild auswählen: </div>
+        <input id="choose-image-input" *ngIf="showUpload" type="file" (change)="onFileSelected($event)">
         <img *ngIf="!showUpload" [src]="imagePath" alt="{{imagePath}}" width="300" height="300"
             (click)="removeImage()">
     </div>

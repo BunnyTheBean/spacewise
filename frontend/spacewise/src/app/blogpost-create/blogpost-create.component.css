@@ -68,3 +68,15 @@ textarea::placeholder {
 #category-and-submit-container {
     justify-content: space-between;
 }
+
+#choose-image-label {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 1em !important;
+    text-align: center;
+}
+
+#choose-image-input {
+    font-size: 1em;
+}
+
