@@ -1,5 +1,7 @@
-<header>
-  <h1 (click)="slowNavigate('/home')">SpaceWise</h1>
+<header class="flex-container-horizontal">
+  <h1>SpaceWise</h1>
+  <span (click)="slowNavigate('/home')">zurückgehen</span>
+  <span class="material-icons" (click)="slowNavigate('/home')">logout</span>
 </header>
 
 <router-outlet></router-outlet>

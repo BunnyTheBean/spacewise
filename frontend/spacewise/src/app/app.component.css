@@ -1,6 +1,7 @@
 header {
     background-color: #000;
     margin-bottom: 0.5em;
+    align-items: center;
 }
 
 header * {
@@ -14,4 +15,8 @@ h1 {
     margin: auto;
     text-align: center;
     cursor: default;
+}
+
+span.material-icons {
+    font-size: 36px;
 }
