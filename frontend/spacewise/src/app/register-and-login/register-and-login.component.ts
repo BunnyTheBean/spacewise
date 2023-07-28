@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
@@ -10,7 +10,7 @@ import { LoginService } from '../login.service';
   templateUrl: './register-and-login.component.html',
   styleUrls: ['./register-and-login.component.css']
 })
-export class RegisterAndLoginComponent {
+export class RegisterAndLoginComponent implements OnInit {
   username = new FormControl('');
   password = new FormControl('');
   isLogin: boolean = false;
@@ -25,6 +25,9 @@ export class RegisterAndLoginComponent {
       this.isLogin = true;
       this.buttonText = 'Einloggen';
     }
+  }
+  ngOnInit(): void {
+    document.getElementById('username')?.focus();
   }
 
   public buttonClicked(): void {    
@@ -71,5 +74,9 @@ export class RegisterAndLoginComponent {
   private clearForm(): void {
     this.username.setValue('');
     this.password.setValue('');
+  }
+
+  enter() {
+    console.log("enter");
   }
 }

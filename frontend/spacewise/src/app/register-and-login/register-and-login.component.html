@@ -1,4 +1,4 @@
-<div class="flex-container-vertical">
+<div class="flex-container-vertical" (keydown.enter)="buttonClicked()">
     <div class="form-input">
         <label for="username">Name: </label><br>
         <input id="username" type="text" [formControl]="username">

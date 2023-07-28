@@ -8,12 +8,6 @@
 - grey out login/register button on invalid form (also validate the form)
 
 ## Conventions to un-break
-- buttons pop out
-- pointer cursor on clickables
-- clickables react visually to hover and click
-- links looks like links (different colour, maybe underlined)
-- red is only for errors
-- use typical labels for edit button and the like
 - enter button does submit
 
 ## Conventions to break retroactively in demos 1 and 2

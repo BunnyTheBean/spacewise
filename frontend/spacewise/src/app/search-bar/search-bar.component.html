@@ -1,4 +1,4 @@
 <div class="flex-container-horizontal">
-    <input [formControl]="searchBarControl">
-    <span (click)="onSearch()">Suchen</span>
+    <input [formControl]="searchBarControl" (keydown.enter)="onSearch()">
+    <button (click)="onSearch()">Suchen</button>
 </div>
