@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'SpaceWise';
   loggedIn: boolean = false;
 
-  constructor(private loginService: LoginService, private router: Router) {
+  constructor(public loginService: LoginService, private router: Router) {
     this.loginService.loginEvent.subscribe(loggedInStatus => {
       this.loggedIn = loggedInStatus;
     });

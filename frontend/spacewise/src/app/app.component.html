@@ -7,6 +7,10 @@
     <a class="clickable" *ngIf="loggedIn" (click)="logout()">Ausloggen</a>
     <a class="clickable" *ngIf="loggedIn" routerLink="/blogpost/list/myPosts">Meine Posts</a>
     <a class="clickable" *ngIf="loggedIn" routerLink="/blogpost/create">Neuer Post</a>
+    <div *ngIf="loginService.currentUser" class="flex-container-horizontal" id="name-container">
+      <span class="material-icons">account_circle</span>
+      <span id="user-name">{{loginService.currentUser.username}}</span>
+    </div>
   </nav>
 
   <nav class="flex-container-horizontal" id="main-navigation">

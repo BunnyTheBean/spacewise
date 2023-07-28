@@ -68,3 +68,20 @@ app-search-bar {
     color: var(--primary);
     background-color: var(--primary-shade);
 }
+
+span.material-icons {
+    margin-right: 0.1em;
+    color: var(--primary);
+}
+
+#user-name {
+    margin-right: 0.5em;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+#name-container {
+    height: 100%;
+    align-items: center;
+}

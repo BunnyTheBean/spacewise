@@ -10,8 +10,7 @@
 -
 
 ## Conventions to break retroactively in demos 1 and 2
-- put navigation at the bottom
-- use different names for login/register
+-
 
 ## TODOS
 - handle http errors for user service
