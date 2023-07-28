@@ -27,14 +27,7 @@ export class RegisterAndLoginComponent {
     }
   }
 
-  public buttonClicked(): void {
-    if (this.loginService.remainingErrorsToThrow > 0) {
-      this.loginService.remainingErrorsToThrow = 0;
-      alert("Fehler!");
-      this.clearForm();
-      return;
-    }
-    
+  public buttonClicked(): void {    
     if (this.isLogin) {
       this.login();
     } else {

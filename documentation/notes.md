@@ -1,3 +1,25 @@
+## quality of life changes
+- a notepad on the side for research
+- interactive elements not too close together
+- article preview with image and content
+- search bar preview with title and content
+
+
+## Conventions to un-break
+- buttons pop out
+- pointer cursor on clickables
+- clickables react visually to hover and click
+- links looks like links (different colour, maybe underlined)
+- red is only for errors
+- use typical labels for edit button and the like
+- enter button does submit
+
+## Conventions to break retroactively in demos 1 and 2
+- actually break the logo=homelink convention
+    - use a non-sensical icon for the home links
+- put navigation at the bottom
+- use different names for login/register
+
 ## TODOS
 - handle http errors for user service
 - 404 page
