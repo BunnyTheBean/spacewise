@@ -13,7 +13,7 @@ export class HomeComponent {
   
   constructor(private blogpostService: BlogpostService) {
     this.blogpostService.getAllBlogposts().subscribe((data) => {
-      this.blogposts = data.length >= 6 ? data.slice(-6) : data;
+      this.blogposts = data.length >= 6 ? data.slice(-6).reverse() : data;
     });
   }
 }
