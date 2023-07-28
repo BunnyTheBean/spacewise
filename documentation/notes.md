@@ -10,8 +10,6 @@
 -
 
 ## Conventions to break retroactively in demos 1 and 2
-- actually break the logo=homelink convention
-    - use a non-sensical icon for the home links
 - put navigation at the bottom
 - use different names for login/register
 
