@@ -14,7 +14,7 @@ export class RegisterAndLoginComponent {
   username = new FormControl('');
   password = new FormControl('');
   isLogin: boolean = false;
-  buttonText: string = 'Registrieren';
+  buttonText: string = 'Einschreiben';
 
   constructor(private userService: UserService, 
       private route: ActivatedRoute, 
@@ -23,7 +23,7 @@ export class RegisterAndLoginComponent {
     const urlPath = route.snapshot.url[0].path.toLowerCase();
     if (urlPath == 'login') {
       this.isLogin = true;
-      this.buttonText = 'Einloggen';
+      this.buttonText = 'Nutzer auswählen';
     }
   }
 
