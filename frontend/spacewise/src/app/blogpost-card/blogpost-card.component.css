@@ -1,8 +1,17 @@
 h3 {
-    margin-block: 0;
     text-align: center;
+    margin-bottom: 1em;
 }
 
 .flex-container-vertical {
     align-items: center;
+}
+
+div {
+    padding: 1.2em;
+    padding-top: 0.5em;
+}
+
+*:hover {
+    background-color: var(--primary-tint);
 }

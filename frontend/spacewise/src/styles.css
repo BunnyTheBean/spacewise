@@ -1,5 +1,40 @@
+/*
+colour palette ideas
+1. violet and yellow (enby theme)
+    #8f43ee primary (violet)
+    #d2b3f8 primary-tint
+    #1c0d2f primary-shade
+
+    #f0eb8d secondary (yellow)
+    #fcfbe8 secondary-tint
+    #302f1c secondary-shade
+
+2. purple and pink (orion nebula)
+    #7b337d primary (purple)
+    #caadcb primary-tint
+    #180a19 primary-shade
+    
+    #c874b2 secondary (pink)
+    #eed5e7 secondary-tint
+    #3c2235 secondary-shade
+*/
+
+:root {
+    --primary: #a568f1;
+    --primary-tint: #d2b3f8;
+    --primary-shade: #1c0d2f;
+    
+    --secondary: #f0eb8d;
+    --secondary-tint: #fcfbe8;
+    --secondary-shade: #302f1c;
+}
+
 * {
     font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
 }
 
 a {

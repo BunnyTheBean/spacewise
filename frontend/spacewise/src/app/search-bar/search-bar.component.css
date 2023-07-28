@@ -4,9 +4,23 @@ input {
 }
 
 span {
-    background-color: #999;
+    background-color: var(--primary);
     color: #000;
     text-align: center;
     padding: 0.6em;
     font-weight: bold;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+span:hover {
+    background-color: var(--primary-tint);
+}
+.clickable {
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.clickable:hover {
+    color: var(--primary-tint);
 }
