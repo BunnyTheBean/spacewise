@@ -19,12 +19,14 @@ const routes: Routes = [
   { path: 'blogpost/list/physics', component: BlogpostListComponent },
   { path: 'blogpost/list/technology', component: BlogpostListComponent },
   { path: 'blogpost/list/other', component: BlogpostListComponent },
-  { path: 'blogpost/list/search', component: BlogpostListComponent },
+  { path: 'blogpost/list/search', component: BlogpostListComponent, runGuardsAndResolvers: 'always' },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    onSameUrlNavigation: 'reload'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,23 +1,36 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnDestroy } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Blogpost, BlogpostCategory } from '../models/blogpost';
 import { BlogpostService } from '../blogpost.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-blogpost-list',
   templateUrl: './blogpost-list.component.html',
   styleUrls: ['./blogpost-list.component.css']
 })
-export class BlogpostListComponent {
+export class BlogpostListComponent implements OnDestroy {
   title: string = '';
   blogposts: Blogpost[] = [];
+  navigationSubscription: Subscription;
 
-  constructor(private router: Router, private blogpostService: BlogpostService) {
-    const url = router.url.toLowerCase();
-    this.initialize(url);
+  constructor(private router: Router, private blogpostService: BlogpostService, private route: ActivatedRoute) {
+    this.navigationSubscription = this.router.events.subscribe(e => {
+      if (e instanceof NavigationEnd) {
+        this.initialize();
+      }
+    })
   }
 
-  private initialize(url: string): void {
+  ngOnDestroy(): void {
+    if (this.navigationSubscription) {
+      this.navigationSubscription.unsubscribe();
+    }
+  }
+
+  private initialize(): void {
+    const url = this.router.url.split('?')[0].toLowerCase();
+    
     switch(url) {
       case '/blogpost/list/myposts':
         this.initializeMyPosts();
@@ -80,7 +93,12 @@ export class BlogpostListComponent {
   }
 
   private initializeSearch(): void {
+    this.title = "Suchergebnisse";
+    const keywords = this.route.snapshot.queryParamMap.get('searchString')?.split(' ') ?? [];
     
+    this.blogpostService.getOrderedBlogpostsForKeywords(keywords).subscribe(posts => {
+      this.blogposts = posts;
+    });
   }
 
   private fillBlogpostsForCategory(category: number): void {

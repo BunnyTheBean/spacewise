@@ -46,10 +46,9 @@ export class BlogpostService {
     return this.http.put(`${this.blogpostUrl}/${blogpost.id}`, blogpost, this.httpOptions);
   }
 
-  // TODO: update this to return blogposts
-  getOrderedBlogpostsForSearch(keywords: string[]): Observable<number[]> {
-    if (!this.searchBarBuffer)
-      return of<number[]>([]);
+  getOrderedBlogpostsForKeywords(keywords: string[]): Observable<Blogpost[]> {
+    if (!keywords)
+      return of<Blogpost[]>([]);
     
     let searchString = "";
     for (let keyword of keywords) {
@@ -61,6 +60,6 @@ export class BlogpostService {
       params: new HttpParams().set('searchString', searchString)
     } : {};
 
-    return this.http.get<number[]>(`${this.blogpostUrl}/search`, options);
+    return this.http.get<Blogpost[]>(`${this.blogpostUrl}/search`, options);
   }
 }

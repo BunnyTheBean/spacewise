@@ -11,6 +11,7 @@
 - undo slowdown navigation via function, user routerLink again
 - take paths form a config file dynamically
 - make a header component
+- change empty search bar behaviour to share lead to all posts
 
 ## What does the initial homepage need?
 - login button

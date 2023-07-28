@@ -14,7 +14,17 @@ export class SearchBarComponent {
   searchBarControl = new FormControl('');
 
   onSearch(): void {
-    this.blogpostService.searchBarBuffer = this.searchBarControl.value ?? '';
-    this.router.navigateByUrl("/blogpost/list/search");
+    const searchString = this.searchBarControl.value ?? '';
+
+    if (!searchString) {
+      this.router.navigateByUrl('/blogpost/list/allPosts');
+      return;
+    }
+
+    this.router.navigate(["/blogpost/list/search"], {
+      queryParams: {
+        searchString: searchString
+      }
+    });
   }
 }
