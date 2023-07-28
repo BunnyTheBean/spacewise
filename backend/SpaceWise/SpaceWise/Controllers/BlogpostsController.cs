@@ -87,23 +87,24 @@ namespace SpaceWise.Controllers
         // GET: api/Blogposts/search?searchString=word1%20word2
         [Route("search")]
         [HttpGet]
-        public ActionResult<IEnumerable<int>> GetOrderedBlogpostsForSearchString(string searchString)
+        public ActionResult<IEnumerable<Blogpost>> GetOrderedBlogpostsForSearchString(string searchString)
         {
             var keywords = searchString.Split(" ").Select(x => x.ToLower()).ToArray();
-            var blogposts = _context.Blogposts.Include(x => x.Sections).ToList();
+            var blogposts = _context.Blogposts.Include(x => x.Sections).Include(x => x.User).ToList();
             var scores = new List<BlogpostScore>();
             
             foreach (var blogpost in blogposts)
             {
+                blogpost.User!.Password = string.Empty;
                 scores.Add(getSearchScore(keywords, blogpost));
             }
 
-            var orderedIds = scores.Where(x => x.Score > 0)
+            var orderedPosts = scores.Where(x => x.Score > 0)
                                     .OrderByDescending(x => x.Score)
-                                    .Select(x => x.BlogpostId)
+                                    .Select(x => x.Blogpost)
                                     .ToList();
 
-            return orderedIds;
+            return orderedPosts!;
         }
 
         // PUT: api/Blogposts/5
@@ -255,7 +256,7 @@ namespace SpaceWise.Controllers
 
             return new BlogpostScore()
             {
-                BlogpostId = blogpost.Id,
+                Blogpost = blogpost,
                 Score = score
             };
         }

@@ -2,7 +2,7 @@
 {
     public class BlogpostScore
     {
-        public int BlogpostId { get; set; }
+        public Blogpost? Blogpost { get; set; }
         public int Score { get; set; }
     }
 }
