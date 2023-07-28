@@ -1,6 +1,5 @@
 ## quality of life changes
 - a notepad on the side for research
-- interactive elements not too close together
 - article preview with image and content
 - search bar preview with title and content
 
@@ -8,7 +7,7 @@
 - grey out login/register button on invalid form (also validate the form)
 
 ## Conventions to un-break
-- enter button does submit
+-
 
 ## Conventions to break retroactively in demos 1 and 2
 - actually break the logo=homelink convention
