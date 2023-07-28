@@ -1,22 +1,29 @@
 <div class="flex-container-horizontal">
     <div id="text-container" [formGroup]="blogpostForm">
-        <button *ngIf="!isEditing" class="submit-button" type="submit" (click)="onCreate()">Kreieren</button>
-        <button *ngIf="isEditing" class="submit-button" type="submit" (click)="onUpdate()">Verändern</button>
-        <br>
-
-        <select formControlName="category">
-            <option *ngFor="let c of categories; let i = index" [ngValue]="i">{{c}}</option>
-        </select>
+        <div id="category-and-submit-container" class="flex-container-horizontal">
+            <div>
+                <label>Kategorie: </label>
+                <select formControlName="category">
+                    <option *ngFor="let c of categories; let i = index" [ngValue]="i">{{c}}</option>
+                </select>
+            </div>
+            
+            <button *ngIf="!isEditing" class="submit-button" type="submit" (click)="onCreate()">Anlegen</button>
+            <button *ngIf="isEditing" class="submit-button" type="submit" (click)="onUpdate()">Bearbeiten</button>
+        </div>
 
         <div formArrayName="sections">
             <div *ngFor="let section of sections.controls; let i = index">
                 <div class="section-container" [formGroupName]="i">
-                    <input class="input-{{i}}" type="text" formControlName="title"><br>
-                    <textarea formControlName="content" rows="12"></textarea>
+                    <input class="input-{{i}}" type="text" formControlName="title" 
+                        [placeholder]="i == 0 ? 'Hauptüberschrift' : 'Teilüberschrift'"
+                        >
+                    <br>
+                    <textarea formControlName="content" rows="12" placeholder="Inhalt"></textarea>
                 </div>
             </div>
 
-            <button (click)="addSection()">+ weiterer Abschnitt</button>
+            <button (click)="addSection()">+ Abschnitt hinzufügen</button>
         </div>
     </div>
     

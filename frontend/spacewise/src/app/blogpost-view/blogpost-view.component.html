@@ -1,11 +1,14 @@
 <div class="flex-container-horizontal">
     <div id="text-container" *ngIf="blogpost">
         <section *ngFor="let section of blogpost!.sections; let i = index">
-            <h3 id="header-{{i}}">{{section.title}}</h3>
+            <div class="flex-container-horizontal">
+                <button *ngIf="belongsToUser && i == 0" (click)="onEditClicked()">Bearbeiten</button>
+                <h3 id="header-{{i}}">{{section.title}}</h3>
+            </div>
             <p>{{section.content}}</p>
         </section>
 
-        <button *ngIf="belongsToUser" (click)="onEditClicked()">Verändern</button>
+        
     </div>
     
     <img [src]="imagePath" alt="{{imagePath}}" width="300" height="300">

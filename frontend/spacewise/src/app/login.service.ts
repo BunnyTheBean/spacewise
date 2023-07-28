@@ -7,7 +7,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-  currentUser: User | null = null;
+  //currentUser: User | null = null; UNDO!! 
+  currentUser: User | null = {
+    id: 5
+  }
   loginEvent = new EventEmitter<boolean>();
   
   private loginUrl = 'http://localhost:5001/api/users/login';

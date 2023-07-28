@@ -19,9 +19,26 @@ p {
     width: 100%;
     padding: 3px;
     padding-top: 0;
-    font-size: 1.1em;
+    font-size: 1.25em;
+    line-height: 1.5;
+    text-align: justify;
 }
 
 #header-0 {
-    font-size: 2em !important;
+    font-size: 2.2em !important;
+    margin-block: 0.2em;
+}
+
+button {
+    height: fit-content;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: var(--primary-tint);
+    cursor: pointer;
+    padding: 0.5em 1.2em;
+    margin-right: 2em;
+}
+
+section .flex-container-horizontal {
+    align-items: center;
 }
