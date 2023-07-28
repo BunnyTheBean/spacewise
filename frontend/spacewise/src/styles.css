@@ -22,6 +22,7 @@ colour palette ideas
 :root {
     --primary: #a568f1;
     --primary-tint: #d2b3f8;
+    --primary-shade-light: #8f43ee;
     --primary-shade: #1c0d2f;
     
     --secondary: #f0eb8d;

@@ -2,6 +2,24 @@ h2 {
     text-align: center;
 }
 
-div {
+.flex-container-vertical {
+    align-items: center;
+    gap: 1em;
+}
+
+.article {
     text-align: center;
+    font-size: 1.1em;
+    line-height: 2;
+    color: var(--primary-shade-light);
+    text-decoration: underline;
+    cursor: pointer;
+    width: 50%;
+
+    transition: all 0.2s;;
+}
+
+.article:hover {
+    background-color: var(--primary-tint);
+    color: var(--primary-shade)
 }

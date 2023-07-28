@@ -1,4 +1,6 @@
 <h2>{{ title }}</h2>
-<div *ngFor="let blogpost of blogposts" routerLink="/blogpost/view/{{blogpost.id}}">
-    {{blogpost.sections![0].title}}
+<div class="flex-container-vertical">
+    <div class="article" *ngFor="let blogpost of blogposts" routerLink="/blogpost/view/{{blogpost.id}}">
+        {{blogpost.sections![0].title}}
+    </div>
 </div>
