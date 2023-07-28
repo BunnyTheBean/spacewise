@@ -1,7 +1,8 @@
 <header>
   <nav class="flex-container-horizontal" id="meta-navigation">
-    <h1 routerLink="/home">SpaceWise</h1>
+    <h1>SpaceWise</h1>
     <app-search-bar></app-search-bar>
+    <span class="material-icons" routerLink="/home">logout</span>
     <a *ngIf="!loggedIn" routerLink="/register">Registrieren</a>
     <a *ngIf="!loggedIn" routerLink="/login">Einloggen</a>
     <a *ngIf="loggedIn" (click)="logout()">Ausloggen</a>

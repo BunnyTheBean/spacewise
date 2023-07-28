@@ -45,9 +45,6 @@ app-search-bar {
     font-size: 1.2em;
 }
 
-/*
-font-size: 1.1em;
-    font-weight: bold;
-    text-align: center;
-    line-height: 1.5;
-*/
+span {
+    margin-right: 0.5em;
+}
