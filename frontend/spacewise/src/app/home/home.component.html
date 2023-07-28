@@ -1,8 +1,8 @@
 <div class="flex-container-horizontal">
     <nav>
-        <a (click)="slowNavigate('/register')">Registrieren</a>
-        <a *ngIf="!loggedIn" (click)="slowNavigate('/login')">Einloggen</a>
-        <a *ngIf="loggedIn" (click)="logout()">Ausloggen</a>
+        <a (click)="slowNavigate('/register')">Einschreiben</a>
+        <a *ngIf="!loggedIn" (click)="slowNavigate('/login')">Nutzerauswahl</a>
+        <a *ngIf="loggedIn" (click)="logout()">Nutzer verlassen</a>
     </nav>
 
     <main>
