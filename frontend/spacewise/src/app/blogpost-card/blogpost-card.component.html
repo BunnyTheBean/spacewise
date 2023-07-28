@@ -1,4 +1,4 @@
-<div *ngIf="blogpost">
+<div *ngIf="blogpost" class="flex-container-vertical">
     <h3>{{blogpost.sections![0].title}}</h3>
     <img [src]="'http://localhost:5001/images/' + blogpost.image" width="300" height="300" alt="blogpost.image">
 </div>

@@ -2,3 +2,7 @@ h3 {
     margin-block: 0;
     text-align: center;
 }
+
+.flex-container-vertical {
+    align-items: center;
+}

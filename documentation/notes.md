@@ -12,6 +12,7 @@
 - take paths form a config file dynamically
 - make a header component
 - change empty search bar behaviour to share lead to all posts
+- todo: don't allow editing once when logging out on a view page
 
 ## What does the initial homepage need?
 - login button
