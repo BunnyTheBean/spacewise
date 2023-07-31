@@ -36,6 +36,7 @@ colour palette ideas
 
 body {
     margin: 0;
+    margin-right: 36px;
 }
 
 .flex-container-horizontal {

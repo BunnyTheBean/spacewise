@@ -10,6 +10,7 @@ import { LoginService } from './login.service';
 export class AppComponent {
   title = 'SpaceWise';
   loggedIn: boolean = false;
+  flyoutIsOpen: boolean = false;
 
   constructor(public loginService: LoginService, private router: Router) {
     this.loginService.loginEvent.subscribe(loggedInStatus => {
@@ -25,5 +26,9 @@ export class AppComponent {
     if (url.includes('edit') || url.includes('create')) {
       this.router.navigateByUrl('/home')
     }
+  }
+
+  toggleFlyout(): void {
+    this.flyoutIsOpen = !this.flyoutIsOpen;
   }
 }
