@@ -25,7 +25,10 @@
 <router-outlet></router-outlet>
 
 <div id="flyout" class="flex-container-horizontal" [ngClass]="flyoutIsOpen ? 'is-open' : ''">
-  <i (click)="toggleFlyout()" class="material-icons">{{flyoutIsOpen ? "chevron_right" : "chevron_left"}}</i>
+  <div (click)="toggleFlyout()" id="chevron-container" class="flex-container-vertical">
+    <i id="flyout-chevron" class="material-icons">{{flyoutIsOpen ? "chevron_right" : "chevron_left"}}</i>
+  </div>
+
   <div class="flex-container-vertical">
     <h2>Notizen</h2>
     <textarea></textarea>
