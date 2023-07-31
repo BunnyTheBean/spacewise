@@ -45,6 +45,41 @@ namespace SpaceWise.Controllers
             return user;
         }
 
+        [Route("notes/{userId}")]
+        [HttpGet]
+        public async Task<ActionResult<string>> GetNotesForUserId(int userId)
+        {
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return user.Notes ?? "";
+        }
+
+        // PUT: api/users/notes
+        // user in json body
+        [Route("notes")]
+        [HttpPut]
+        public async Task<IActionResult> UpdateNotesForUserId(User incomingUser)
+        {
+            if (incomingUser == null || incomingUser.Notes == null)
+            {
+                return BadRequest();
+            }
+
+            var user = await _context.Users.FindAsync(incomingUser.Id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            user.Notes = incomingUser.Notes;
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+
         // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
