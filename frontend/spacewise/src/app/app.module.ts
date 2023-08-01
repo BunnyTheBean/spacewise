@@ -11,7 +11,8 @@ import { BlogpostCreateComponent } from './blogpost-create/blogpost-create.compo
 import { BlogpostViewComponent } from './blogpost-view/blogpost-view.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { BlogpostCardComponent } from './blogpost-card/blogpost-card.component';
-import { BlogpostListComponent } from './blogpost-list/blogpost-list.component'
+import { BlogpostListComponent } from './blogpost-list/blogpost-list.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BlogpostListComponent } from './blogpost-list/blogpost-list.component'
     BlogpostViewComponent,
     SearchBarComponent,
     BlogpostCardComponent,
-    BlogpostListComponent
+    BlogpostListComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

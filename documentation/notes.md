@@ -1,7 +1,5 @@
 ## error handling
-- gentle pop up messages when register or login fail
 - no search results: helpful tips for finding things
-- http errors for services
 - 404 page
 
 ## kommunikationsfähigkeit

@@ -5,6 +5,7 @@ import { RegisterAndLoginComponent } from './register-and-login/register-and-log
 import { BlogpostCreateComponent } from './blogpost-create/blogpost-create.component';
 import { BlogpostViewComponent } from './blogpost-view/blogpost-view.component';
 import { BlogpostListComponent } from './blogpost-list/blogpost-list.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'blogpost/list/other', component: BlogpostListComponent },
   { path: 'blogpost/list/search', component: BlogpostListComponent, runGuardsAndResolvers: 'always' },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({
