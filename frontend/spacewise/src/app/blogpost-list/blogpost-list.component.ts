@@ -98,6 +98,12 @@ export class BlogpostListComponent implements OnDestroy {
     
     this.blogpostService.getOrderedBlogpostsForKeywords(keywords).subscribe(posts => {
       this.blogposts = posts;
+
+      if (this.blogposts.length == 0) {
+        this.title = "Leider gab es keine Treffer."
+        const tips = document.getElementById('search-tips') as HTMLElement;
+        tips.style.display = "block";
+      }
     });
   }
 

@@ -23,3 +23,24 @@ h2 {
     background-color: var(--primary-tint);
     color: var(--primary-shade)
 }
+
+p {
+    text-align: center;
+    font-size: 1.1em;
+
+    display: flex;
+    align-items: flex-start;
+}
+
+i.material-icons {
+    padding-right: 1em;
+    color: var(--primary);
+}
+
+#search-tips {
+    width: calc(100% - 40vw);
+    margin-left: 20vw;
+    margin-right: 20vw;
+
+    display: none;
+}
