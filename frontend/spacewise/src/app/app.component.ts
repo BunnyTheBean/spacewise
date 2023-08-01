@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
@@ -15,9 +15,16 @@ export class AppComponent implements OnInit {
   flyoutIsOpen: boolean = false;
   private notesInput = new Subject<string>();
 
+  @ViewChild('notesBox')
+  notesBox!: ElementRef;
+
   constructor(public loginService: LoginService, private router: Router, private userService: UserService) {
     this.loginService.loginEvent.subscribe(loggedInStatus => {
       this.loggedIn = loggedInStatus;
+      
+      if (loggedInStatus) {
+        this.updateNotepadWithUserNotes();
+      }
     });
   }
 
@@ -31,6 +38,30 @@ export class AppComponent implements OnInit {
       }
 
       this.userService.updateNotesForUser(this.loginService.currentUser.id!, notesValue).subscribe();
+    });
+  }
+
+  private updateNotepadWithUserNotes() {
+    if (!this.loginService.currentUser) return;
+
+    this.userService.getNotesForUser(this.loginService.currentUser.id!).subscribe(notes => {
+      let currentNotes = this.notesBox.nativeElement.value;
+
+      if (currentNotes.trim() == '') {
+        this.notesBox.nativeElement.value = notes;
+        return;
+      }
+
+      if (notes.trim() == '') {
+        this.notesBox.nativeElement.value = currentNotes;
+        return;
+      }
+
+      if (notes.trim() != currentNotes.trim()) {
+        currentNotes = `NEU:\n${currentNotes}\n\nALT:\n${notes}`.trim();
+        this.notesBox.nativeElement.value = currentNotes;
+        this.userService.updateNotesForUser(this.loginService.currentUser!.id!, currentNotes).subscribe();
+      }
     });
   }
 

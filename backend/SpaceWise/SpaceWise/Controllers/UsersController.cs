@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol;
 using SpaceWise.Database;
 using SpaceWise.Models;
 
@@ -55,7 +56,7 @@ namespace SpaceWise.Controllers
                 return NotFound();
             }
 
-            return user.Notes ?? "";
+            return (user.Notes ?? "").ToJson();
         }
 
         // PUT: api/users/notes
