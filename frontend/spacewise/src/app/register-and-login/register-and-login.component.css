@@ -24,6 +24,10 @@ button {
     padding: 0.1em 1em;
 }
 
+button:disabled {
+    cursor: default;
+}
+
 label {
     font-weight: bold;
 }

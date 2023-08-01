@@ -9,5 +9,5 @@
         <input id="password" type="password" [formControl]="password">
     </div>
 
-    <button id="submit-button" type="button" (click)="buttonClicked()">{{ buttonText }}</button>
+    <button [disabled]="username.invalid || password.invalid" id="submit-button" type="button" (click)="buttonClicked()">{{ buttonText }}</button>
 </div>

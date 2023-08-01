@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,8 +11,8 @@ import { LoginService } from '../login.service';
   styleUrls: ['./register-and-login.component.css']
 })
 export class RegisterAndLoginComponent implements OnInit {
-  username = new FormControl('');
-  password = new FormControl('');
+  username = new FormControl('', Validators.required);
+  password = new FormControl('', Validators.required);
   isLogin: boolean = false;
   buttonText: string = 'Registrieren';
 
@@ -39,8 +39,9 @@ export class RegisterAndLoginComponent implements OnInit {
   }
 
   private login(): void {
-    if (!this.username.value || !this.password.value) {
+    if (!this.username.valid || !this.password.valid) {
       console.error("Empty inputs on login!");
+      return;
     }
 
     const user = this.getUserFromForm();
@@ -53,8 +54,9 @@ export class RegisterAndLoginComponent implements OnInit {
   }
 
   private register(): void {
-    if (!this.username.value || !this.password.value) {
+    if (!this.username.valid || !this.password.valid) {
       console.error("Empty inputs on register!");
+      return;
     }
     
     const user = this.getUserFromForm();
