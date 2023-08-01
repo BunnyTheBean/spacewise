@@ -1,42 +1,18 @@
-## quality of life changes
-- a notepad on the side for research
-- article preview with image and content
-- search bar preview with title and content
-
 ## error handling
 - grey out login/register button on invalid form (also validate the form)
-
-## Conventions to un-break
--
-
-## Conventions to break retroactively in demos 1 and 2
--
+- gentle pop up messages when register or login fail
+- no search results: helpful tips for finding things
+- http errors for services
+- 404 page
 
 ## TODOS
-- handle http errors for user service
-- 404 page
-- make submit buttons react to enter key
 - save settings like url strings in a separate config file
 - restrict file upload types
 - adjust other BlogpostsController methods
 - allow UNDO for image upload and adding new text section
-- add labels to create page entries
-- create page: make the first input have bigger font size (2em)
 - undo slowdown navigation via function, user routerLink again
 - take paths form a config file dynamically
 - make a header component
-- change empty search bar behaviour to share lead to all posts
 - todo: don't allow editing once when logging out on a view page
 - communicate better how notes saving works in demo 4
-
-## What does the initial homepage need?
-- login button
-- register button
-- title
-- create blogpost button
-- list of all existing posts
-
-### Design Specs
-- only black white and #efefef
-- font: inter
-- font sizes: 32, 18, 16
+- search bar preview with title and content (optional!)
