@@ -1,14 +1,15 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from './models/user';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of, throwError } from 'rxjs';
+import { NotificationColour, NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private notificationService: NotificationService) { }
 
   private usersUrl = 'http://localhost:5001/api/users';
   private notesUrl = this.usersUrl + '/notes';
@@ -17,7 +18,27 @@ export class UserService {
   };
 
   registerUser(user: User): Observable<User> {
-    return this.http.post<User>(this.usersUrl, user, this.httpOptions);
+    return this.http.post<User>(this.usersUrl, user, this.httpOptions).pipe(
+      catchError((error) => {
+        let message = "Es ist ein unbekannter Fehler aufgetreten. Versuchen Sie es bitte erneut."
+        
+        if (error.status == 409) {
+          message = `Der Name "${user.username}" scheint bereits vergeben zu sein.`;
+        }
+
+        if (error.status == 0) {
+          message = "Der Server ist gerade nicht erreichbar.";
+        }
+
+        this.notificationService.showNotification(
+          message,
+          NotificationColour.red,
+          7000
+        );
+
+        return throwError(error);
+      })
+    );
   }
 
   getNotesForUser(userId: number): Observable<string> {

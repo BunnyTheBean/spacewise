@@ -4,6 +4,11 @@
 - http errors for services
 - 404 page
 
+## kommunikationsfähigkeit
+- feedback when register is successful
+- feedback when creation/edit is successful
+- feedback when notes are updated after login
+
 ## TODOS
 - save settings like url strings in a separate config file
 - restrict file upload types
