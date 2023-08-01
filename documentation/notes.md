@@ -27,6 +27,7 @@
 - make a header component
 - change empty search bar behaviour to share lead to all posts
 - todo: don't allow editing once when logging out on a view page
+- communicate better how notes saving works in demo 4
 
 ## What does the initial homepage need?
 - login button

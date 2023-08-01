@@ -37,6 +37,11 @@ colour palette ideas
 body {
     margin: 0;
     margin-right: 36px;
+    transition: margin 0.3s ease-in-out;
+}
+
+.squished-body {
+    margin-right: calc(36px + 30vw);
 }
 
 .flex-container-horizontal {
