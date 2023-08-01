@@ -1,7 +1,3 @@
-## error handling
-- no search results: helpful tips for finding things
-- 404 page
-
 ## kommunikationsfähigkeit
 - feedback when register is successful
 - feedback when creation/edit is successful
