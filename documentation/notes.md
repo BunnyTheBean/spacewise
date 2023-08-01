@@ -1,5 +1,4 @@
 ## error handling
-- grey out login/register button on invalid form (also validate the form)
 - gentle pop up messages when register or login fail
 - no search results: helpful tips for finding things
 - http errors for services

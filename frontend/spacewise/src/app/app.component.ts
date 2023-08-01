@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { UserService } from './user.service';
+import { NotificationColour, NotificationService } from './notification.service';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,10 @@ export class AppComponent implements OnInit {
   @ViewChild('notesBox')
   notesBox!: ElementRef;
 
-  constructor(public loginService: LoginService, private router: Router, private userService: UserService) {
+  constructor(public loginService: LoginService, 
+              private router: Router, 
+              private userService: UserService,
+              private notificationService: NotificationService) {
     this.loginService.loginEvent.subscribe(loggedInStatus => {
       this.loggedIn = loggedInStatus;
       
@@ -84,5 +88,9 @@ export class AppComponent implements OnInit {
 
   triggerNotesInput(value: string) {
     this.notesInput.next(value);
+  }
+
+  closeNotification(): void {
+    this.notificationService.closeNotification();
   }
 }

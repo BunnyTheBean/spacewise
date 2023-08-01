@@ -34,3 +34,10 @@
     <textarea #notesBox (input)="triggerNotesInput(notesBox.value)"></textarea>
   </div>
 </div>
+
+<div id="notification">
+  <div class="flex-container-horizontal">
+    <p id="notification-text"></p>
+    <i class="material-icons" (click)="closeNotification()">close</i>
+  </div>
+</div>
