@@ -23,6 +23,11 @@ colour palette ideas
 --primary-shade-light: #8f43ee;
 --primary-shade: #1c0d2f; */
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 :root {
     --primary: #8F43EE;
     --primary-tint-1: #A569F1;

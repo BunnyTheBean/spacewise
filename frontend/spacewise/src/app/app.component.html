@@ -20,7 +20,7 @@
   <div id="header-description-section" class="flex-container-horizontal">
     <div>
       <h1><span class="purple-text">Gemeinsam</span> das Universum erforschen...</h1>
-      <p>Mit SpaceWise entdeckt ihr zusammen den Weltraum</p>
+      <p>Mit SpaceWise entdeckt ihr zusammen den Weltraum.</p>
     </div>
 
     <div id="header-bubble-container" class="flex-container-vertical">
@@ -39,7 +39,23 @@
   </nav>
 </header>
 
-<router-outlet></router-outlet>
+<main class="flex-container-horizontal">
+  <div id="left-bubbles" class="flex-container-vertical">
+    <app-bubble id="bubble-l1" [colour]="1" [radius]="80"></app-bubble>
+    <app-bubble id="bubble-l2" [colour]="3" [radius]="90"></app-bubble>
+    <app-bubble id="bubble-l3" [colour]="6" [radius]="50"></app-bubble>
+  </div>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+  <div id="right-bubbles" class="flex-container-vertical">
+    <app-bubble id="bubble-r1" [colour]="0" [radius]="40"></app-bubble>
+    <app-bubble id="bubble-r2" [colour]="6" [radius]="80"></app-bubble>
+    <app-bubble id="bubble-r3" [colour]="1" [radius]="110"></app-bubble>
+  </div>
+</main>
 
 <div id="flyout" class="flex-container-horizontal" [ngClass]="flyoutIsOpen ? 'is-open' : ''">
   <div (click)="toggleFlyout()" id="chevron-container" class="flex-container-vertical">

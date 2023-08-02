@@ -2,6 +2,7 @@ header {
     background-color: var(--neutral);
     padding: 0.5em;
     padding-bottom: 0;
+    border-bottom: 4px solid var(--primary-shade-4);
 }
 
 a {
@@ -242,6 +243,45 @@ span.material-icons {
     border-top: 2px solid var(--primary-shade-4);
 }
 
-header {
-    border-bottom: 4px solid var(--primary-shade-4);
+main {
+    width: 100%;
+    justify-content: space-between;
+}
+
+#left-bubbles, #right-bubbles {
+    width: 200px;
+}
+
+#right-bubbles {
+    align-items: flex-end;
+}
+
+#bubble-l1 {
+    margin-top: 100px;
+    margin-left: -40px;
+}
+
+#bubble-l2 {
+    margin-top: 110px;
+    margin-left: 40px;
+}
+
+#bubble-l3 {
+    margin-top: 30px;
+    margin-left: -10px;
+}
+
+#bubble-r1 {
+    margin-top: 150px;
+    margin-right: -15px;
+}
+
+#bubble-r2 {
+    margin-top: 40px;
+    margin-right: 20px;
+}
+
+#bubble-r3 {
+    margin-top: 80px;
+    margin-right: -50px;
 }
