@@ -4,10 +4,6 @@ header {
     margin-bottom: 1em;
 }
 
-header * {
-    color: #fff;
-}
-
 a {
     text-decoration: none;
 }

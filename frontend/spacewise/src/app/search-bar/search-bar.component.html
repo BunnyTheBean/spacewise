@@ -1,4 +1,5 @@
-<div class="flex-container-horizontal">
-    <input [formControl]="searchBarControl" (keydown.enter)="onSearch()">
-    <button (click)="onSearch()">Suchen</button>
+<div id="search-bar-container" class="flex-container-horizontal">
+    <i class="material-icons">search</i>
+    <input [formControl]="searchBarControl" (keydown.enter)="onSearch()"
+        placeholder="Suche nach Schlüsselworten">
 </div>

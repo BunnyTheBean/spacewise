@@ -45,6 +45,11 @@ colour palette ideas
     --dark: var(--neutral);
 }
 
+* {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    color: var(--secondary);
+}
+
 button {
     font-size: 1em;
     height: 35px;
@@ -78,10 +83,6 @@ button {
     color: var(--secondary);
     border: 2px solid var(--primary-shade-2);
     background-color: var(--primary-shade-2);
-}
-
-* {
-    font-family: Inter, Arial, Helvetica, sans-serif;
 }
 
 body {
