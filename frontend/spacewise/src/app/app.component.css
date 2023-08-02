@@ -94,7 +94,7 @@ span.material-icons {
     bottom: 0;
     width: calc(36px + 30vw);
     z-index: 9999;
-    background-color: #fff;
+    background-color: #FFF4DF;
     transform: translateX(calc(1px + 30vw));
     transition: transform 0.3s ease-in-out;
 }
