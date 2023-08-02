@@ -1,5 +1,10 @@
 <div id="search-bar-container" class="flex-container-horizontal">
-    <i class="material-icons">search</i>
-    <input [formControl]="searchBarControl" (keydown.enter)="onSearch()"
+    <label for="search-bar-input">
+        <i class="material-icons">search</i>
+    </label>
+    
+    <input id="search-bar-input"
+        [formControl]="searchBarControl" 
+        (keydown.enter)="onSearch()"
         placeholder="Suche nach Schlüsselworten">
 </div>
