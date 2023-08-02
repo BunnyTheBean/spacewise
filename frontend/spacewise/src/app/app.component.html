@@ -1,8 +1,12 @@
 <header>
-  <nav class="flex-container-horizontal" id="meta-navigation">
-    <img src="http://localhost:5001/images/logo.svg" width="40" height="40">
-    <h1 class="clickable" routerLink="/home">SpaceWise</h1>
+  <nav id="meta-navigation" class="flex-container-horizontal">
+    <div id="home-button" class="flex-container-horizontal" routerLink="/home">
+      <img class="clickable" src="assets/images/logo.svg" width="40" height="40">
+      <h1 class="clickable">SpaceWise</h1>
+    </div>
+
     <app-search-bar></app-search-bar>
+    
     <a class="clickable" *ngIf="!loggedIn" routerLink="/register">Registrieren</a>
     <a class="clickable" *ngIf="!loggedIn" routerLink="/login">Einloggen</a>
     <a class="clickable" *ngIf="loggedIn" (click)="logout()">Ausloggen</a>

@@ -7,7 +7,7 @@
 - save settings like url strings in a separate config file
 - restrict file upload types
 - adjust other BlogpostsController methods
-- allow UNDO for image upload and adding new text section
+- allow deleting blogpost section
 - undo slowdown navigation via function, user routerLink again
 - take paths form a config file dynamically
 - make a header component

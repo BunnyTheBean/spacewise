@@ -20,13 +20,19 @@ h1 {
     padding: 0.2em;
 }
 
-.clickable {
+#home-button {
+    cursor: pointer;
+    transition: all 0.2s;
+    align-items: center;
+}
+
+#home-button * {
     cursor: pointer;
     transition: all 0.2s;
 }
 
-.clickable:hover {
-    color: var(--primary-tint);
+#home-button:hover * {
+    color: var(--primary-tint-2);
 }
 
 nav {

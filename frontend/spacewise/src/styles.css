@@ -18,16 +18,66 @@ colour palette ideas
     #eed5e7 secondary-tint
     #3c2235 secondary-shade
 */
+/* --primary: #a568f1;
+--primary-tint: #d2b3f8;
+--primary-shade-light: #8f43ee;
+--primary-shade: #1c0d2f; */
 
 :root {
-    --primary: #a568f1;
-    --primary-tint: #d2b3f8;
-    --primary-shade-light: #8f43ee;
-    --primary-shade: #1c0d2f;
-    
-    --secondary: #f0eb8d;
-    --secondary-tint: #fcfbe8;
-    --secondary-shade: #302f1c;
+    --primary: #8F43EE;
+    --primary-tint-1: #A569F1;
+    --primary-tint-2: #BB8FF4;
+    --primary-tint-3: #D1B5F7;
+    --primary-tint-4: #E7DBFA;
+    --primary-shade-1: #763BC5;
+    --primary-shade-2: #5D339C;
+    --primary-shade-3: #442B73;
+    --primary-shade-4: #2B234A;
+
+    --secondary: #F1F1FF;
+    --secondary-shade-1: #C4C4D4;
+    --secondary-shade-2: #9797A9;
+    --secondary-shade-3: #6A6A7E;
+    --secondary-shade-4: #3D3D53;
+    --light: var(--secondary);
+
+    --neutral: #0F0F28;
+    --dark: var(--neutral);
+}
+
+button {
+    font-size: 1em;
+    height: 35px;
+    padding-right: 1em;
+    padding-left: 1em;
+    border-radius: 12px;
+    cursor: pointer;
+
+    transition: all 0.3s;
+}
+
+.button-primary {
+    border: 2px solid var(--primary);
+    color: var(--secondary);
+    background-color: var(--primary);
+}
+
+.button-primary:hover {
+    color: var(--primary-tint-3);
+    border: 2px solid var(--primary-shade-4);
+    background-color: var(--primary-shade-4);
+}
+
+.button-primary-light {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    background-color: var(--secondary);
+}
+
+.button-primary-light:hover {
+    color: var(--secondary);
+    border: 2px solid var(--primary-shade-2);
+    background-color: var(--primary-shade-2);
 }
 
 * {
@@ -38,6 +88,7 @@ body {
     margin: 0;
     margin-right: 36px;
     transition: margin 0.3s ease-in-out;
+    background-color: var(--secondary);
 }
 
 .squished-body {

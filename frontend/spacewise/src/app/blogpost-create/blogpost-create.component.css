@@ -80,3 +80,7 @@ textarea::placeholder {
     font-size: 1em;
 }
 
+#choose-image-input::file-selector-button {
+
+}
+
