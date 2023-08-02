@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { LoginService } from './login.service';
-import { Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { Subject, Subscription, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { UserService } from './user.service';
 import { NotificationColour, NotificationService } from './notification.service';
 
@@ -15,6 +15,10 @@ export class AppComponent implements OnInit {
   loggedIn: boolean = false;
   flyoutIsOpen: boolean = false;
   private notesInput = new Subject<string>();
+  navigationSubscription: Subscription;
+  linkIds: string[] = [
+    'allPosts', 'celestialBodies', 'physics', 'technology', 'other'
+  ];
 
   @ViewChild('notesBox')
   notesBox!: ElementRef;
@@ -30,6 +34,25 @@ export class AppComponent implements OnInit {
         this.updateNotepadWithUserNotes();
       }
     });
+
+    this.navigationSubscription = this.router.events.subscribe(e => {
+      if (e instanceof NavigationEnd) {
+        this.setNavigationLinkStyleForUrl();
+      }
+    });
+  }
+
+  private setNavigationLinkStyleForUrl(): void {
+    const url = this.router.url.toLowerCase();
+
+    for (let linkId of this.linkIds) {
+      const linkElement = document.getElementById(linkId);
+      if (!linkElement) continue;
+      linkElement.className = '';
+      if (url.includes(linkId.toLowerCase())) {
+        linkElement.className = 'selected';
+      }
+    }
   }
 
   ngOnInit(): void {

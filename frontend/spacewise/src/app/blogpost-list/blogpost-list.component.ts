@@ -19,7 +19,7 @@ export class BlogpostListComponent implements OnDestroy {
       if (e instanceof NavigationEnd) {
         this.initialize();
       }
-    })
+    });
   }
 
   ngOnDestroy(): void {
