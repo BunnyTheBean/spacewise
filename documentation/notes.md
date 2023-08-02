@@ -1,3 +1,25 @@
+## ideen von rebecca
+- ausloggen, meine posts, etc. als dropdown beim login
+- kärtchen hochklappbar machen um ersten text zu zeigen
+- leichte gradients
+- kein reinweiß
+- illustrationen https://undraw.co/illustrations
+- inspirationen https://the7.io/elementor-creative-dark/
+- dunkler hintergrund mit bubbles?
+    - mal rumprobieren, was am wenigsten aufwand braucht
+- https://neumorphism.io/#e0e0e0
+- https://css.glass/
+- https://9elements.github.io/fancy-border-radius/#72.40.13.46--.
+- https://app.haikei.app/
+- violet sheen on card hover
+- card drop shadow
+- https://codepen.io/andrewhawkes/pen/RwwOJrO
+- nur bestimmte teile vom header sticky
+https://css-tricks.com/creating-sliding-effects-using-sticky-positioning/
+
+optional:
+- datum des blogposts
+
 ## kommunikationsfähigkeit
 - feedback when register is successful
 - feedback when creation/edit is successful
