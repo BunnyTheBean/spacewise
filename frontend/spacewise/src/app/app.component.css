@@ -1,7 +1,6 @@
 header {
     background-color: var(--neutral);
     padding: 0.5em;
-    margin-bottom: 1em;
 }
 
 a {
@@ -42,15 +41,11 @@ app-search-bar {
 
 #meta-navigation {
     align-items: center;
-    margin-bottom: 1.5em;
+    margin-bottom: 0.5em;
 }
 
-#meta-navigation a {
-    font-weight: normal;
-    font-size: 1em;
-    margin-right: 1.5em;
-    min-width: fit-content;
-    padding: 0.4em;
+#meta-navigation button {
+    margin-right: 0.5em;
 }
 
 #main-navigation {
@@ -175,4 +170,72 @@ span.material-icons {
 
 #notification .flex-container-horizontal i {
     cursor: pointer;
+}
+
+#header-description-section {
+    justify-content: space-between;
+}
+
+#header-description-section h1 {
+    margin-top: 1em;
+    text-align: left;
+    padding: 0;
+    font-size: 3.5em;
+}
+
+#header-description-section p {
+    margin: 0;
+    margin-bottom: 3em;
+    font-weight: bold;
+    font-size: 2em;
+    padding-left: 4px;
+}
+
+.purple-text {
+    color: var(--primary);
+}
+
+#header-bubble-container {
+    align-items: flex-end;
+}
+
+/* #bubble-1 {
+    margin-top: 20px;
+    margin-right: -40px;
+}
+
+#bubble-2 {
+    margin-top: 40px;
+    margin-right: 160px;
+}
+
+#bubble-3 {
+    margin-top: -120px;
+    margin-right: 360px;
+} */
+
+#bubble-1 {
+    position: absolute;
+    top: 100px;
+    right: 15px;
+}
+
+#bubble-2 {
+    position: absolute;
+    top: 240px;
+    right: 200px;
+}
+
+#bubble-3 {
+    position: absolute;
+    top: 160px;
+    right: 400px;
+}
+
+#main-navigation {
+    border-top: 2px solid var(--primary-shade-4);
+}
+
+header {
+    border-bottom: 4px solid var(--primary-shade-4);
 }

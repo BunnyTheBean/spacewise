@@ -48,6 +48,7 @@ colour palette ideas
 * {
     font-family: Inter, Arial, Helvetica, sans-serif;
     color: var(--secondary);
+    background-color: var(--neutral);
 }
 
 button {
@@ -69,8 +70,8 @@ button {
 
 .button-primary:hover {
     color: var(--primary-tint-3);
-    border: 2px solid var(--primary-shade-4);
-    background-color: var(--primary-shade-4);
+    border: 2px solid var(--primary-shade-3);
+    background-color: var(--primary-shade-3);
 }
 
 .button-primary-light {
@@ -87,7 +88,7 @@ button {
 
 body {
     margin: 0;
-    margin-right: 36px;
+    margin-right: 32px;
     transition: margin 0.3s ease-in-out;
     background-color: var(--secondary);
 }
