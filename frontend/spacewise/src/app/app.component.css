@@ -249,7 +249,7 @@ main {
 }
 
 #left-bubbles, #right-bubbles {
-    width: 200px;
+    width: 150px;
 }
 
 #right-bubbles {
@@ -284,4 +284,8 @@ main {
 #bubble-r3 {
     margin-top: 80px;
     margin-right: -50px;
+}
+
+#center-content {
+    width: 100%;
 }
