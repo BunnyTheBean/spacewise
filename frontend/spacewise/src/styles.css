@@ -91,6 +91,13 @@ button {
     background-color: var(--primary-shade-2);
 }
 
+button:disabled, button:disabled:hover {
+    cursor: default;
+    background-color: var(--secondary-shade-3);
+    border-color: var(--secondary-shade-3);
+    color: var(--secondary-shade-2);
+}
+
 body {
     margin: 0;
     margin-right: 32px;

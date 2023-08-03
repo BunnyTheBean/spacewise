@@ -1,13 +1,19 @@
 <div class="flex-container-vertical" (keydown.enter)="buttonClicked()">
     <div class="form-input">
-        <label for="username">Name: </label><br>
+        <label for="username">Name: </label>
         <input id="username" type="text" [formControl]="username">
     </div>
 
     <div class="form-input">
-        <label for="password">Passwort: </label><br>
+        <label for="password">Passwort: </label>
         <input id="password" type="password" [formControl]="password">
     </div>
 
-    <button [disabled]="username.invalid || password.invalid" id="submit-button" type="button" (click)="buttonClicked()">{{ buttonText }}</button>
+    <button 
+        class="button-primary"
+        [disabled]="username.invalid || password.invalid" 
+        id="submit-button" type="button" 
+        (click)="buttonClicked()">
+        {{ buttonText }}
+    </button>
 </div>

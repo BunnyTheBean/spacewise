@@ -1,6 +1,7 @@
 .flex-container-vertical {
     width: 100%;
     align-items: center;
+    margin-top: 0.3em;
 }
 
 .flex-container-vertical * {
@@ -8,26 +9,27 @@
 }
 
 .form-input {
-    width: 200px;
+    width: 250px;
 }
 
 input {
-    width: 100%;
+    width: calc(250px - 0.4em);
+    font-size: 1.1em;
+    margin-bottom: 0.2em;
+    border: 4px solid var(--primary-shade-3);
+    border-radius: 12px;
+    color: var(--primary-shade-3);
+    background-color: var(--secondary);
+    padding: 0.2em;
 }
 
 button {
     margin-top: 0.5em;
-    font-size: 1em;
-    font-weight: bold;
-    background-color: var(--primary-tint);
-    cursor: pointer;
-    padding: 0.1em 1em;
-}
-
-button:disabled {
-    cursor: default;
 }
 
 label {
     font-weight: bold;
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 0.2em;
 }
