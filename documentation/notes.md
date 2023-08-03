@@ -1,3 +1,7 @@
+## demo 4 todos:
+- fix bubbles in header on small screens
+
+
 ## ideen von rebecca
 - ausloggen, meine posts, etc. als dropdown beim login
 - kärtchen hochklappbar machen um ersten text zu zeigen
@@ -24,6 +28,7 @@ optional:
 - feedback when register is successful
 - feedback when creation/edit is successful
 - feedback when notes are updated after login
+- tooltips
 
 ## TODOS
 - save settings like url strings in a separate config file
