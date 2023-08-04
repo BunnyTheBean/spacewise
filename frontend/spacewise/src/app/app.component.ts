@@ -73,8 +73,6 @@ export class AppComponent implements OnInit {
 
       this.userService.updateNotesForUser(this.loginService.currentUser.id!, notesValue).subscribe();
     });
-
-    this.notificationService.showNotification("Achtung! Das hier ist eine Notification!", NotificationColour.red);
   }
 
   private updateNotepadWithUserNotes() {
