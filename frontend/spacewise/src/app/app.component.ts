@@ -86,6 +86,12 @@ export class AppComponent implements OnInit {
         return;
       }
 
+      this.notificationService.showNotification(
+        'Neue Notizen wurden nach dem Login übernommen.',
+        NotificationColour.default,
+        3000
+      );
+
       if (notes.trim() == '') {
         this.notesBox.nativeElement.value = currentNotes;
         return;
