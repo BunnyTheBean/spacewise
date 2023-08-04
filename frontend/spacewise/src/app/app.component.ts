@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
 
   private setDescriptionSectionVisibility(): void {
     const url = this.router.url.toLowerCase();
-    this.showDescriptionSection = url.includes('home');
+    this.showDescriptionSection = url.includes('home') || url.includes('list');
   }
 
   private setNavigationLinkStyleForUrl(): void {
