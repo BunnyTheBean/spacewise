@@ -23,6 +23,7 @@
     right: 0;
     background-color: transparent;
     transition: all 0.4s;
+    border-radius: 20px;
 }
 
 #overlay:hover {

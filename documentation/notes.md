@@ -7,6 +7,7 @@
 - clear search bar on use
 - confirmation question when deleting a section
 - click to delete overlay on image upload on create page
+- sort list results in reverse
 
 ## ideen von rebecca
 - ausloggen, meine posts, etc. als dropdown beim login
