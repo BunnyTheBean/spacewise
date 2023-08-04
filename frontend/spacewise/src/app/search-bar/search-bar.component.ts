@@ -26,5 +26,6 @@ export class SearchBarComponent {
         searchString: searchString
       }
     });
+    this.searchBarControl.setValue('');
   }
 }

@@ -13,6 +13,7 @@ export class BlogpostListComponent implements OnDestroy {
   title: string = '';
   blogposts: Blogpost[] = [];
   navigationSubscription: Subscription;
+  isSearchList: boolean = false;
 
   constructor(private router: Router, private blogpostService: BlogpostService, private route: ActivatedRoute) {
     this.navigationSubscription = this.router.events.subscribe(e => {
@@ -102,9 +103,15 @@ export class BlogpostListComponent implements OnDestroy {
   }
 
   private initializeSearch(): void {
-    this.title = "Suchergebnisse";
     const keywords = this.route.snapshot.queryParamMap.get('searchString')?.split(' ') ?? [];
     
+    this.title = "Suchergebnisse für: ";
+    for (let keyword of keywords) {
+      this.title += keyword + ' ';
+    }
+    this.title = this.title.trim();
+    this.isSearchList = true;
+
     this.blogpostService.getOrderedBlogpostsForKeywords(keywords).subscribe(posts => {
       this.blogposts = posts.reverse();
 

@@ -2,10 +2,9 @@
 - indicate end of pages, maybe with a line or sth
 - make side bubbles fixed
 - show used search terms on search page
-- clear search bar on use
+x clear search bar on use
 - confirmation question when deleting a section
 - "click to delete" overlay on image upload on create page
-- sort list results in reverse
 
 ## ideen von rebecca
 - ausloggen, meine posts, etc. als dropdown beim login
