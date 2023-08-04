@@ -1,10 +1,3 @@
-<!-- <h2>{{ title }}</h2> -->
-<!-- <div class="flex-container-vertical">
-    <div class="article" *ngFor="let blogpost of blogposts" routerLink="/blogpost/view/{{blogpost.id}}">
-        {{blogpost.sections![0].title}}
-    </div>
-</div> -->
-
 <div id="card-grid">
     <div class="grid-card-container" *ngFor="let blogpost of blogposts">
         <app-blogpost-card *ngIf="blogpost" [blogpost]="blogpost" routerLink="/blogpost/view/{{blogpost.id}}"></app-blogpost-card>

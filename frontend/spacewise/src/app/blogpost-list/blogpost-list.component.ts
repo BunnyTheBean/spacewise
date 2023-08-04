@@ -53,9 +53,18 @@ export class BlogpostListComponent implements OnDestroy {
       case '/blogpost/list/search':
         this.initializeSearch();
         break;
+      case '/home':
+        this.initializeHome()
+        break;
       default:
         this.initializeDefault();
     }
+  }
+
+  private initializeHome(): void {
+    this.blogpostService.getAllBlogposts().subscribe((data) => {
+      this.blogposts = data.length >= 6 ? data.slice(-6).reverse() : data;
+    });
   }
 
   private initializeMyPosts(): void {
