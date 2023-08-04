@@ -1,8 +1,6 @@
 ## demo 4 todos:
 - indicate end of pages, maybe with a line or sth
 - make side bubbles fixed
-- show used search terms on search page
-x clear search bar on use
 - confirmation question when deleting a section
 - "click to delete" overlay on image upload on create page
 
@@ -37,8 +35,6 @@ optional:
 - adjust other BlogpostsController methods
 - allow deleting blogpost section
 - undo slowdown navigation via function, user routerLink again
-- take paths form a config file dynamically
 - make a header component
-- todo: don't allow editing once when logging out on a view page
-- communicate better how notes saving works in demo 4
+- todo: don't allow editing when logging out on a view page
 - search bar preview with title and content (optional!)
