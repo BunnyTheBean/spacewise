@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   linkIds: string[] = [
     'allPosts', 'celestialBodies', 'physics', 'technology', 'other'
   ];
+  showDescriptionSection: boolean = false;
 
   @ViewChild('notesBox')
   notesBox!: ElementRef;
@@ -38,8 +39,14 @@ export class AppComponent implements OnInit {
     this.navigationSubscription = this.router.events.subscribe(e => {
       if (e instanceof NavigationEnd) {
         this.setNavigationLinkStyleForUrl();
+        this.setDescriptionSectionVisibility();
       }
     });
+  }
+
+  private setDescriptionSectionVisibility(): void {
+    const url = this.router.url.toLowerCase();
+    this.showDescriptionSection = url.includes('home');
   }
 
   private setNavigationLinkStyleForUrl(): void {
