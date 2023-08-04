@@ -37,13 +37,14 @@ nav {
 }
 
 app-search-bar {
-    width: 100%;
+    width: 50%;
     margin: 0.2em 1.2em 0 1.2em;
 }
 
 #meta-navigation {
     align-items: center;
     margin-bottom: 0.5em;
+    justify-content: space-between;
 }
 
 #meta-navigation button {
@@ -288,4 +289,9 @@ main {
 
 #center-content {
     width: 100%;
+}
+
+#meta-navigation-buttons {
+    width: fit-content;
+    align-items: center;
 }
