@@ -13,7 +13,7 @@ import { NotificationColour, NotificationService } from './notification.service'
 export class AppComponent implements OnInit {
   title = 'SpaceWise';
   loggedIn: boolean = false;
-  flyoutIsOpen: boolean = false;
+  flyoutIsOpen: boolean = true;
   private notesInput = new Subject<string>();
   navigationSubscription: Subscription;
   linkIds: string[] = [
@@ -112,8 +112,8 @@ export class AppComponent implements OnInit {
   toggleFlyout(): void {
     this.flyoutIsOpen = !this.flyoutIsOpen;
 
-    const body = document.getElementsByTagName("body")[0] as HTMLElement;
-    body.className = this.flyoutIsOpen ? "squished-body" : "";
+    // const body = document.getElementsByTagName("body")[0] as HTMLElement;
+    // body.className = this.flyoutIsOpen ? "squished-body" : "";
   }
 
   triggerNotesInput(value: string) {

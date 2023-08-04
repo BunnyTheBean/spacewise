@@ -114,9 +114,20 @@ span.material-icons {
 
 #flyout textarea {
     margin-right: 1em;
-    width: calc(30vw - 1.5em);
-    height: calc(95% - 2em);
-    background-color: #fff;
+    margin-top: 1em;
+    width: calc(30vw - 4.3em);
+    height: calc(95% - 5em);
+    background-color: var(--primary-tint-4);
+    border-radius: 12px;
+    resize: none;
+    color: var(--primary-shade-4);
+    padding: 1em;
+    font-size: 1.1em;
+}
+
+#flyout textarea::placeholder {
+    text-align: center;
+    color: var(--primary-tint-3);
 }
 
 #flyout h2 {
@@ -126,7 +137,8 @@ span.material-icons {
 }
 
 #flyout-chevron {
-    font-size: 36px;
+    font-size: 48px;
+    color: var(--primary);
 }
 
 #chevron-container {

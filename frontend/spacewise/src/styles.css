@@ -97,9 +97,9 @@ body {
     background-color: var(--secondary);
 }
 
-.squished-body {
+/* .squished-body {
     margin-right: calc(36px + 30vw);
-}
+} */
 
 .flex-container-horizontal {
     display: flex;
