@@ -6,6 +6,7 @@
 - show used search terms on search page
 - clear search bar on use
 - confirmation question when deleting a section
+- click to delete overlay on image upload on create page
 
 ## ideen von rebecca
 - ausloggen, meine posts, etc. als dropdown beim login

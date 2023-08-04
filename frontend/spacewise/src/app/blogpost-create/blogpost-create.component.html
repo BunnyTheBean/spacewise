@@ -17,8 +17,17 @@
                 <input class="input-{{i}}" type="text" formControlName="title" 
                     [placeholder]="i == 0 ? 'Hauptüberschrift' : 'Teilüberschrift'"
                     >
-                <br>
-                <textarea formControlName="content" rows="12" placeholder="Inhalt"></textarea>
+
+                <div id="image-and-textarea-container" class="flex-container-horizontal">
+                    <div *ngIf="i == 0" id="image-container" class="flex-container-vertical">
+                        <p *ngIf="showUpload">Bitte ein Bild hochladen:</p>
+                        <input id="choose-image-input" *ngIf="showUpload" type="file" (change)="onFileSelected($event)">
+                        <img *ngIf="!showUpload" [src]="imagePath" alt="{{imagePath}}" width="500" height="350"
+                            (click)="removeImage()">
+                    </div>
+                    
+                    <textarea formControlName="content" rows="12" placeholder="Inhalt"></textarea>
+                </div>
             </div>
         </div>
 
