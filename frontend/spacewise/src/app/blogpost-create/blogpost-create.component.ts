@@ -5,6 +5,7 @@ import { Blogpost, BlogpostCategory, BlogpostSection } from '../models/blogpost'
 import { LoginService } from '../login.service';
 import { BlogpostService } from '../blogpost.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationColour, NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-blogpost-create',
@@ -26,7 +27,8 @@ export class BlogpostCreateComponent {
       private loginService: LoginService,
       private blogpostService: BlogpostService,
       private router: Router,
-      private route: ActivatedRoute) {
+      private route: ActivatedRoute,
+      private notificationService: NotificationService) {
     this.blogpostForm = fb.group({
       category: [this.categories[0]],
       sections: fb.array([ ])
@@ -68,6 +70,11 @@ export class BlogpostCreateComponent {
 
     this.blogpostService.updateBlogpost(blogpost).subscribe(() => {
       this.router.navigateByUrl(`/blogpost/view/${blogpost.id}`);
+      this.notificationService.showNotification(
+        'Blogpost erfolgreich bearbeitet.',
+        NotificationColour.default,
+        3000
+      );
     });
   }
 
@@ -91,6 +98,11 @@ export class BlogpostCreateComponent {
 
     this.blogpostService.createBlogpost(blogpost).subscribe((newBlogpost) => {
       this.router.navigateByUrl(`/blogpost/view/${newBlogpost.id}`);
+      this.notificationService.showNotification(
+        'Blogpost erfolgreich erstellt.',
+        NotificationColour.default,
+        3000
+      );
     })
   }
 

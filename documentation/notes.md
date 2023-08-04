@@ -32,8 +32,6 @@ optional:
 - datum des blogposts
 
 ## kommunikationsfähigkeit
-- feedback when register is successful
-- feedback when creation/edit is successful
 - feedback when notes are updated after login
 - tooltips
 

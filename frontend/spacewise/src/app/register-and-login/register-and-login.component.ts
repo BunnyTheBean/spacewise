@@ -4,6 +4,7 @@ import { User } from '../models/user';
 import { UserService } from '../user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../login.service';
+import { NotificationColour, NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,8 @@ export class RegisterAndLoginComponent implements OnInit {
   constructor(private userService: UserService, 
       private route: ActivatedRoute, 
       private loginService: LoginService,
-      private router: Router) {
+      private router: Router,
+      private notificationService: NotificationService) {
     const urlPath = route.snapshot.url[0].path.toLowerCase();
     if (urlPath == 'login') {
       this.isLogin = true;
@@ -63,6 +65,11 @@ export class RegisterAndLoginComponent implements OnInit {
 
     this.userService.registerUser(user).subscribe(_ => {
       this.router.navigateByUrl('/home');
+      this.notificationService.showNotification(
+        'Registrierung erfolgreich.',
+        NotificationColour.default,
+        5000
+      );
     });
   }
 
