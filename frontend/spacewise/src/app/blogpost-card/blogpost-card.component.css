@@ -3,8 +3,8 @@
     top: 0px;
     left: 0px;
     align-items: center;
-    width: 450px;
-    height: 300px;
+    width: 500px;
+    height: 350px;
     justify-content: space-between;
     box-shadow: 2px 2px 8px var(--primary-half-transparent);
     border-radius: 20px;
@@ -46,6 +46,7 @@ h3 {
     margin-block: 0;
     background-color: transparent;
     text-shadow: -1px 0 #0F0F28, 0 1px #0F0F28, 1px 0 #0F0F28, 0 -1px #0F0F28;
+    font-size: 1.2em;
 }
 
 #category-container {

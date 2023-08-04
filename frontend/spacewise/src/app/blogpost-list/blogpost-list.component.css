@@ -44,3 +44,11 @@ i.material-icons {
 
     display: none;
 }
+
+#card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    margin: 2em 10%;
+    gap: 2em;
+}

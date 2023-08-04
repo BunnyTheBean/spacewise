@@ -1,6 +1,7 @@
-<div id="card-container" *ngIf="blogpost" class="flex-container-vertical">
+<div id="card-container" *ngIf="blogpost" class="flex-container-vertical"
+    routerLink="/blogpost/view/{{blogpost.id}}">
     <img [src]="'http://localhost:5001/images/' + blogpost.image" 
-        width="450" height="300" alt="blogpost.image">
+        width="500" height="350" alt="blogpost.image">
     <h3>{{ blogpost.sections![0].title}}</h3>
     
     <div id="category-container" class="flex-container-horizontal">

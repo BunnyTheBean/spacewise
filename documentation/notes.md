@@ -1,6 +1,8 @@
 ## demo 4 todos:
 - fix bubbles in header on small screens
-
+- indicate end of pages, maybe with a line or sth
+- make side bubbles fixed
+- make flyout go over bubbles
 
 ## ideen von rebecca
 - ausloggen, meine posts, etc. als dropdown beim login
