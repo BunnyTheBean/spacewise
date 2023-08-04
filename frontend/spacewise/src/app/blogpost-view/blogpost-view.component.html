@@ -1,4 +1,8 @@
 <div id="view-container" *ngIf="blogpost">
+    <div id="edit-button-container" class="flex-container-horizontal">
+        <button class="button-primary" *ngIf="belongsToUser" (click)="onEditClicked()">Blogpost Bearbeiten</button>
+    </div>
+
     <h3 id="header-0">{{blogpost.sections![0].title}}</h3>
     <img [src]="imagePath" alt="{{imagePath}}" style="float: left;">
 
@@ -7,19 +11,3 @@
         <p>{{section.content}}</p>
     </section>
 </div>
-
-<!-- <div class="flex-container-horizontal">
-    <div id="text-container" *ngIf="blogpost">
-        <section *ngFor="let section of blogpost!.sections; let i = index">
-            <div class="flex-container-horizontal">
-                <button *ngIf="belongsToUser && i == 0" (click)="onEditClicked()">Bearbeiten</button>
-                <h3 id="header-{{i}}">{{section.title}}</h3>
-            </div>
-            <p>{{section.content}}</p>
-        </section>
-
-        
-    </div>
-    
-    
-</div> -->

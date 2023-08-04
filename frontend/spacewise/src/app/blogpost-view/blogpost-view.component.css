@@ -30,16 +30,6 @@ p {
     margin-block: 0.2em;
 }
 
-button {
-    height: fit-content;
-    font-size: 1em;
-    font-weight: bold;
-    background-color: var(--primary-tint);
-    cursor: pointer;
-    padding: 0.5em 1.2em;
-    margin-right: 2em;
-}
-
 section .flex-container-horizontal {
     align-items: center;
 }
@@ -54,4 +44,12 @@ img {
 
 #view-container {
     margin: 0 3em;
+}
+
+#edit-button-container {
+    justify-content: end;
+}
+
+button {
+    margin-top: 0.5em;
 }
