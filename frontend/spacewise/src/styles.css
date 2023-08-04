@@ -26,6 +26,18 @@ html, body {
 
     --neutral: #0F0F28;
     --dark: var(--neutral);
+
+    --green: #54AB6A;
+    --green-light: #C9E4D0;
+    --green-dark: #1B3823;
+
+    --yellow: #F0D900;
+    --yellow-light: #FCF4AB;
+    --yellow-dark: #504800;
+
+    --red: #B61120;
+    --red-light: #ECB3B6;
+    --red-dark: #3F060B;
 }
 
 * {
