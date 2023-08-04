@@ -1,36 +1,65 @@
-<div class="flex-container-horizontal">
-    <div id="text-container" [formGroup]="blogpostForm">
-        <div id="category-and-submit-container" class="flex-container-horizontal">
-            <div>
-                <label>Kategorie: </label>
-                <select formControlName="category">
-                    <option *ngFor="let c of categories; let i = index" [ngValue]="i">{{c}}</option>
-                </select>
-            </div>
-            
-            <button *ngIf="!isEditing" class="submit-button" type="submit" (click)="onCreate()">Anlegen</button>
-            <button *ngIf="isEditing" class="submit-button" type="submit" (click)="onUpdate()">Bearbeiten</button>
+<div id="main-container" [formGroup]="blogpostForm">
+    <div id="category-and-submit-container" class="flex-container-horizontal">
+        <div>
+            <label>Kategorie: </label>
+            <select formControlName="category">
+                <option *ngFor="let c of categories; let i = index" [ngValue]="i">{{c}}</option>
+            </select>
         </div>
-
-        <div formArrayName="sections">
-            <div *ngFor="let section of sections.controls; let i = index">
-                <div class="section-container" [formGroupName]="i">
-                    <input class="input-{{i}}" type="text" formControlName="title" 
-                        [placeholder]="i == 0 ? 'Hauptüberschrift' : 'Teilüberschrift'"
-                        >
-                    <br>
-                    <textarea formControlName="content" rows="12" placeholder="Inhalt"></textarea>
-                </div>
-            </div>
-
-            <button (click)="addSection()">+ Abschnitt hinzufügen</button>
-        </div>
+        
+        <button *ngIf="!isEditing" class="button-primary" type="submit" (click)="onCreate()">Blogpost anlegen</button>
+        <button *ngIf="isEditing" class="button-primary" type="submit" (click)="onUpdate()">Bearbeiten abschließen</button>
     </div>
-    
-    <div id="image-container">
-        <div id="choose-image-label" *ngIf="showUpload">Bild auswählen: </div>
-        <input id="choose-image-input" *ngIf="showUpload" type="file" (change)="onFileSelected($event)">
-        <img *ngIf="!showUpload" [src]="imagePath" alt="{{imagePath}}" width="300" height="300"
-            (click)="removeImage()">
+
+    <div id="all-sections-container" formArrayName="sections">
+        <div *ngFor="let section of sections.controls; let i = index">
+            <div class="section-container" [formGroupName]="i">
+                <input class="input-{{i}}" type="text" formControlName="title" 
+                    [placeholder]="i == 0 ? 'Hauptüberschrift' : 'Teilüberschrift'"
+                    >
+                <br>
+                <textarea formControlName="content" rows="12" placeholder="Inhalt"></textarea>
+            </div>
+        </div>
+
+        <div id="plus-minus-button-container" class="flex-container-horizontal">
+            <button id="add-section-button" class="button-primary-light" (click)="addSection()">+ weiteren Abschnitt hinzufügen</button>
+            <button *ngIf="this.sections.length > 1" class="button-primary-light" (click)="removeSection()">- letzten Abschnitt löschen</button>
+        </div>
     </div>
 </div>
+
+<!-- <div id="text-container" [formGroup]="blogpostForm">
+    <div id="category-and-submit-container" class="flex-container-horizontal">
+        <div>
+            <label>Kategorie: </label>
+            <select formControlName="category">
+                <option *ngFor="let c of categories; let i = index" [ngValue]="i">{{c}}</option>
+            </select>
+        </div>
+        
+        <button *ngIf="!isEditing" class="button-primary" type="submit" (click)="onCreate()">Blogpost anlegen</button>
+        <button *ngIf="isEditing" class="button-primary" type="submit" (click)="onUpdate()">Bearbeiten abschließen</button>
+    </div>
+
+    <div formArrayName="sections">
+        <div *ngFor="let section of sections.controls; let i = index">
+            <div class="section-container" [formGroupName]="i">
+                <input class="input-{{i}}" type="text" formControlName="title" 
+                    [placeholder]="i == 0 ? 'Hauptüberschrift' : 'Teilüberschrift'"
+                    >
+                <br>
+                <textarea formControlName="content" rows="12" placeholder="Inhalt"></textarea>
+            </div>
+        </div>
+
+        <button (click)="addSection()">+ Abschnitt hinzufügen</button>
+    </div>
+</div>
+
+<div id="image-container">
+    <div id="choose-image-label" *ngIf="showUpload">Bild auswählen: </div>
+    <input id="choose-image-input" *ngIf="showUpload" type="file" (change)="onFileSelected($event)">
+    <img *ngIf="!showUpload" [src]="imagePath" alt="{{imagePath}}" width="300" height="300"
+        (click)="removeImage()">
+</div> -->

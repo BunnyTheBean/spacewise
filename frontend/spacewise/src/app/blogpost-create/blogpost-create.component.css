@@ -1,4 +1,73 @@
-#image-container {
+#main-container {
+    width: calc(100% - 2em);
+    margin: 1em;
+}
+
+#category-and-submit-container {
+    width: 100%;
+    justify-content: space-between;
+}
+
+#category-and-submit-container label {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#category-and-submit-container select {
+    border-radius: 12px;
+    font-size: 1.2em;
+    padding: 0.1em;
+    border: 2px solid var(--primary-shade-2);
+    background-color: var(--secondary-shade-4);
+    color: var(--primary-tint-3);
+}
+
+.section-container {
+    width: calc(100% - 1em);
+    margin: 0.5em 0;
+    margin-right: 1em;
+}
+
+.section-container input {
+    width: 100%;
+    font-size: 1.4em;
+    padding: 0.2em;
+    border: 4px solid var(--primary-shade-3);
+    border-radius: 12px;
+    color: var(--primary-shade-4);
+    background-color: var(--primary-tint-4);
+    margin-bottom: 0.5em;
+}
+
+.section-container textarea {
+    width: 100%;
+    font-size: 1.2em;
+    padding: 0.2em;
+    border: 4px solid var(--primary-shade-3);
+    border-radius: 12px;
+    color: var(--primary-shade-4);
+    background-color: var(--secondary);
+    text-align: justify;
+}
+
+.section-container input::placeholder,
+.section-container textarea::placeholder {
+    text-align: center;
+    color: var(--primary-tint-3);
+    line-height: calc(13em);
+}
+
+#all-sections-container {
+    width: 100%;
+}
+
+#plus-minus-button-container {
+    width: 100%;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+/* #image-container {
     min-width: 300px;
     margin: 1em;
 }
@@ -33,15 +102,6 @@ textarea {
 
 .submit-button {
     padding: 0.5em 1.2em;
-}
-
-button {
-    height: fit-content;
-    font-size: 1em;
-    font-weight: bold;
-    background-color: var(--primary-tint);
-    cursor: pointer;
-    padding: 0.1em 0.5em;
 }
 
 label {
@@ -83,4 +143,4 @@ textarea::placeholder {
 #choose-image-input::file-selector-button {
 
 }
-
+ */

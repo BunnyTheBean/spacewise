@@ -82,6 +82,10 @@ export class BlogpostCreateComponent {
     }));
   }
 
+  removeSection(): void {
+    if (this.sections.length > 1) this.sections.removeAt(-1);
+  }
+
   onCreate(): void {
     const blogpost = this.getBlogpostFromForm();
 

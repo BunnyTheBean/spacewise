@@ -5,6 +5,7 @@
 - make flyout go over bubbles
 - show used search terms on search page
 - clear search bar on use
+- confirmation question when deleting a section
 
 ## ideen von rebecca
 - ausloggen, meine posts, etc. als dropdown beim login
