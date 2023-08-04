@@ -63,21 +63,21 @@ export class BlogpostListComponent implements OnDestroy {
 
   private initializeHome(): void {
     this.blogpostService.getAllBlogposts().subscribe((data) => {
-      this.blogposts = data.length >= 6 ? data.slice(-6).reverse() : data;
+      this.blogposts = data.length >= 6 ? data.slice(-6).reverse() : data.reverse();
     });
   }
 
   private initializeMyPosts(): void {
     this.title = "Meine Blogposts";
     this.blogpostService.getAllBlogpostsForCurrentUser().subscribe(posts => {
-      this.blogposts = posts;
+      this.blogposts = posts.reverse();
     });
   }
 
   private initializeAllPosts(): void {
     this.title = "Alle Blogposts";
     this.blogpostService.getAllBlogposts().subscribe(posts => {
-      this.blogposts = posts;
+      this.blogposts = posts.reverse();
     });
   }
 
@@ -106,7 +106,7 @@ export class BlogpostListComponent implements OnDestroy {
     const keywords = this.route.snapshot.queryParamMap.get('searchString')?.split(' ') ?? [];
     
     this.blogpostService.getOrderedBlogpostsForKeywords(keywords).subscribe(posts => {
-      this.blogposts = posts;
+      this.blogposts = posts.reverse();
 
       if (this.blogposts.length == 0) {
         this.title = "Leider gab es keine Treffer."
@@ -118,7 +118,7 @@ export class BlogpostListComponent implements OnDestroy {
 
   private fillBlogpostsForCategory(category: number): void {
     this.blogpostService.getAllBlogpostsForCategory(category).subscribe(posts => {
-      this.blogposts = posts;
+      this.blogposts = posts.reverse();
     });
   }
 

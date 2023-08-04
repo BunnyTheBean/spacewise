@@ -13,7 +13,7 @@ import { NotificationColour, NotificationService } from './notification.service'
 export class AppComponent implements OnInit {
   title = 'SpaceWise';
   loggedIn: boolean = false;
-  flyoutIsOpen: boolean = true;
+  flyoutIsOpen: boolean = false;
   private notesInput = new Subject<string>();
   navigationSubscription: Subscription;
   linkIds: string[] = [
