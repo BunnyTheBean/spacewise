@@ -1,4 +1,14 @@
-<div class="flex-container-horizontal">
+<div id="view-container" *ngIf="blogpost">
+    <h3 id="header-0">{{blogpost.sections![0].title}}</h3>
+    <img [src]="imagePath" alt="{{imagePath}}" style="float: left;">
+
+    <section *ngFor="let section of blogpost!.sections; let i = index">
+        <h3 *ngIf="i != 0">{{section.title}}</h3>
+        <p>{{section.content}}</p>
+    </section>
+</div>
+
+<!-- <div class="flex-container-horizontal">
     <div id="text-container" *ngIf="blogpost">
         <section *ngFor="let section of blogpost!.sections; let i = index">
             <div class="flex-container-horizontal">
@@ -11,5 +21,5 @@
         
     </div>
     
-    <img [src]="imagePath" alt="{{imagePath}}" width="300" height="300">
-</div>
+    
+</div> -->

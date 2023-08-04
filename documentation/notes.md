@@ -3,6 +3,8 @@
 - indicate end of pages, maybe with a line or sth
 - make side bubbles fixed
 - make flyout go over bubbles
+- show used search terms on search page
+- clear search bar on use
 
 ## ideen von rebecca
 - ausloggen, meine posts, etc. als dropdown beim login
