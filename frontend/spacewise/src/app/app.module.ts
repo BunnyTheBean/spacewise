@@ -14,6 +14,7 @@ import { BlogpostCardComponent } from './blogpost-card/blogpost-card.component';
 import { BlogpostListComponent } from './blogpost-list/blogpost-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BubbleComponent } from './bubble/bubble.component'
+import { CategoryToStringPipe } from './category-to-string.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BubbleComponent } from './bubble/bubble.component'
     BlogpostCardComponent,
     BlogpostListComponent,
     PageNotFoundComponent,
-    BubbleComponent
+    BubbleComponent,
+    CategoryToStringPipe
   ],
   imports: [
     BrowserModule,

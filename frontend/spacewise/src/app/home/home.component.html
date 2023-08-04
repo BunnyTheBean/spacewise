@@ -1,8 +1,12 @@
 <h2>Aktuelle Blogposts</h2>
 
-<div id="card-grid">
+<div class="flex-container-horizontal" style="justify-content: center;">
+    <app-blogpost-card [blogpost]="blogposts[3]"></app-blogpost-card>
+</div>
+
+<!-- <div id="card-grid">
     <div class="card-container" *ngFor="let blogpost of blogposts">
         <app-blogpost-card *ngIf="blogpost" [blogpost]="blogpost" routerLink="/blogpost/view/{{blogpost.id}}"></app-blogpost-card>
     </div>
     
-</div>
+</div> -->

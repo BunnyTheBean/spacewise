@@ -1,5 +1,11 @@
-<div *ngIf="blogpost" class="flex-container-vertical">
-    <h3>{{ blogpost.sections![0].title }}</h3>
-    <p>{{ blogpost.sections![0].content }}</p>
-    <img [src]="'http://localhost:5001/images/' + blogpost.image" width="300" height="300" alt="blogpost.image">
+<div id="card-container" *ngIf="blogpost" class="flex-container-vertical">
+    <img [src]="'http://localhost:5001/images/' + blogpost.image" 
+        width="450" height="300" alt="blogpost.image">
+    <h3>{{ blogpost.sections![0].title}}</h3>
+    
+    <div id="category-container" class="flex-container-horizontal">
+        <span></span>
+        <p>{{blogpost.category ?? -1 | categoryToString}}</p>
+    </div>
+    <div id="overlay"></div>
 </div>
