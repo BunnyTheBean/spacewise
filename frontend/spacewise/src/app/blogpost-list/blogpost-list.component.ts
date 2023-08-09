@@ -113,7 +113,7 @@ export class BlogpostListComponent implements OnDestroy {
     this.isSearchList = true;
 
     this.blogpostService.getOrderedBlogpostsForKeywords(keywords).subscribe(posts => {
-      this.blogposts = posts.reverse();
+      this.blogposts = posts;
 
       if (this.blogposts.length == 0) {
         this.title = "Leider gab es keine Treffer."
